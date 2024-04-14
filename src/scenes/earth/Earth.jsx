@@ -18,10 +18,9 @@ const Earth = ({ displacementScale }) => {
       '/assets/earth_displacement.jpg',
     ])
 
-  useFrame(() => {
-    // Calculate the Earth's position based on its angle from the Sun
+  useFrame(({clock}) => {
     const angle = 1.0
-    const distance = 9
+    const distance = 9 // 9
     const x = Math.sin(angle) * distance
     const z = Math.cos(angle) * distance
     earthRef.current.position.set(x, 0, z)
@@ -33,7 +32,7 @@ const Earth = ({ displacementScale }) => {
     <group ref={earthRef}>
       <mesh castShadow receiveShadow>
         {/* Radius , X-axis , Y-axis */}
-        <sphereGeometry args={[1, 32, 32]} />
+        <sphereGeometry args={[1, 50, 50]} />
         <meshPhongMaterial
           map={earthTexture}
           normalMap={earthNormalMap}
@@ -44,7 +43,14 @@ const Earth = ({ displacementScale }) => {
         />
       </mesh>
       {/* <ISS /> */}
-      <Moon />
+      
+      <group>
+        <Moon />
+        <mesh rotation={[Math.PI / 2, 0, 0]}>
+          <ringBufferGeometry args={[1.95, 2.05, 80]}/>
+          <meshBasicMaterial color={0xf5e96c} opacity={0.2} transparent={true} side={THREE.DoubleSide}/>
+        </mesh>
+      </group>
     </group>
   )
 }

@@ -1,9 +1,8 @@
-import { useHelper } from '@react-three/drei'
-import AnimatedStars from './AnimatedStars'
 import { useRef } from 'react'
-
 import * as THREE from 'three'
+import { useHelper } from '@react-three/drei'
 
+import AnimatedStars from './AnimatedStars'
 import Sun from './scenes/sun/Sun'
 import Mercury from './scenes/mercury/Mercury'
 import Venus from './scenes/venus/Venus'

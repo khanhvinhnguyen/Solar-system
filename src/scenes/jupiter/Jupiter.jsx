@@ -13,7 +13,7 @@ const Jupiter = ({ displacementScale }) => {
   useFrame(() => {
     // Calculate the Jupiter's position based on its angle from the Sun
     const angle = 11.86
-    const distance = 18
+    const distance = 46.827 // 18
     const x = Math.sin(angle) * distance
     const z = Math.cos(angle) * distance
     jupiterRef.current.position.set(x, 0, z)

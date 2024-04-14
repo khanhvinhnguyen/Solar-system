@@ -13,7 +13,7 @@ const Uranus = ({ displacementScale }) => {
   useFrame(() => {
     // Calculate the Uranus's position based on its angle from the Sun
     const angle = 84.01
-    const distance = 30
+    const distance = 172.62 // 30
     const x = Math.sin(angle) * distance
     const z = Math.cos(angle) * distance
     uranusRef.current.position.set(x, 0, z)

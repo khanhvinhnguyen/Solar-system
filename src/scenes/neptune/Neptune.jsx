@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import { useTexture } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useRef } from 'react'
+import { distance } from 'three/examples/jsm/nodes/Nodes.js'
 
 
 const Neptune = ({ displacementScale }) => {
@@ -13,7 +14,7 @@ const Neptune = ({ displacementScale }) => {
   useFrame(() => {
     // Calculate the Neptune's position based on its angle from the Sun
     const angle = 164.8
-    const distance = 36
+    const distance = 270.63 // 36
     const x = Math.sin(angle) * distance
     const z = Math.cos(angle) * distance
     neptuneRef.current.position.set(x, 0, z)

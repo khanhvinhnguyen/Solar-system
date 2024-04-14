@@ -1,25 +1,26 @@
-import * as THREE from 'three'
-import { useTexture } from '@react-three/drei'
-import { useFrame } from '@react-three/fiber'
-import { useRef } from 'react'
-
+import * as THREE from "three";
+import { useTexture } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { useRef } from "react";
 
 const Mercury = ({ displacementScale }) => {
-  const mercuryRef = useRef()
-  const mercuryPositionRef = useRef(new THREE.Vector3(4, 0, 0)) // Create a reference to the Mercury's position vector
+  const mercuryRef = useRef();
+  const mercuryPositionRef = useRef(new THREE.Vector3(4, 0, 0)); // Create a reference to the Mercury's position vector
 
-  const [mercuryTexture] = useTexture(['/assets/mercury_map.jpg'])
+  const [mercuryTexture] = useTexture(["/assets/mercury_map.jpg"]);
 
-  useFrame(() => {
-    // Calculate the Mercury's position based on its angle from the Sun
-    const angle = 0.241
-    const distance = 4.5
-    const x = Math.sin(angle) * distance
-    const z = Math.cos(angle) * distance
-    mercuryRef.current.position.set(x, 0, z)
-    mercuryRef.current.rotation.y += 0.0001
-    mercuryPositionRef.current = mercuryRef.current.position
-  })
+  useFrame(({ clock }) => {
+    const orbitSpeed = 0.241;
+    const rotationSpeed = 0.0001;
+
+    const angle = clock.getElapsedTime() * 0.241;
+    const distance = 3.51; //4.5
+    const x = Math.sin(angle) * distance;
+    const z = Math.cos(angle) * distance;
+    mercuryRef.current.position.set(x, 0, z);
+    mercuryRef.current.rotation.y += 0.0001;
+    mercuryPositionRef.current = mercuryRef.current.position;
+  });
 
   return (
     <group ref={mercuryRef}>
@@ -33,7 +34,7 @@ const Mercury = ({ displacementScale }) => {
         />
       </mesh>
     </group>
-  )
-}
+  );
+};
 
-export default Mercury
+export default Mercury;

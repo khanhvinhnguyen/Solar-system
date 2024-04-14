@@ -11,9 +11,8 @@ const Mars = ({ displacementScale }) => {
   const [marsTexture] = useTexture(['/assets/mars_map.jpeg'])
 
   useFrame(() => {
-    // Calculate the Mars's position based on its angle from the Sun
     const angle = 1.881
-    const distance = 12
+    const distance = 13.716 // 12
     const x = Math.sin(angle) * distance
     const z = Math.cos(angle) * distance
     marsRef.current.position.set(x, 0, z)

@@ -13,7 +13,7 @@ const Venus = ({ displacementScale }) => {
   useFrame(() => {
     // Calculate the Venus's position based on its angle from the Sun
     const angle = 0.615
-    const distance = 6
+    const distance = 6.507 //6
     const x = Math.sin(angle) * distance
     const z = Math.cos(angle) * distance
     venusRef.current.position.set(x, 0, z)

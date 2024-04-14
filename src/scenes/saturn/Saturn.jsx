@@ -13,7 +13,7 @@ const Saturn = ({ displacementScale }) => {
   useFrame(() => {
     // Calculate the Saturn's position based on its angle from the Sun
     const angle = 29.46
-    const distance = 24
+    const distance = 85.851 // 24
     const x = Math.sin(angle) * distance
     const z = Math.cos(angle) * distance
     saturnRef.current.position.set(x, 0, z)

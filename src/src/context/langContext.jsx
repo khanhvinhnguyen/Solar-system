@@ -18,9 +18,9 @@ const LanguageProvider = ({ children }) => {
     let localeData;
 
     if (locale === "en") {
-      localeData = await import("../locales/en_US.ts");
+      localeData = await import("../locales/en_US.js");
     } else if (locale === "vn") {
-      localeData = await import("../locales/vi_VN.ts");
+      localeData = await import("../locales/vi_VN.js");
     }
 
     intl.init({

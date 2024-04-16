@@ -14,20 +14,20 @@ const Sun = () => {
   });
 
   const planetsDistanceToSun = {
-    mercury: 3.51,
-    venus: 6.507,
-    earth: 9,
-    mars: 13.716,
-    jupiter: 46.827,
-    saturn: 85.851,
-    uranus: 172.62,
-    neptune: 270.63,
+    Mercury: 3.51,
+    Venus: 6.507,
+    Earth: 9,
+    Mars: 13.716,
+    Jupiter: 46.827,
+    Saturn: 85.851,
+    Uranus: 172.62,
+    Neptune: 270.63,
   };
 
   const planetsOrbitLine = Object.entries(planetsDistanceToSun).map(
     ([planetName, planetDistance]) => (
-      <mesh rotation={[Math.PI / 2, 0, 0]}>
-        <ringBufferGeometry
+      <mesh key={planetName} rotation={[Math.PI / 2, 0, 0]}>
+        <ringGeometry
           args={[planetDistance - 0.05, planetDistance + 0.05, 80]}
         />
         <meshBasicMaterial
@@ -42,7 +42,7 @@ const Sun = () => {
 
   return (
     <group>
-      <mesh ref={sunRef} position={[0, 0, 0]}>
+      <mesh name="Sun" ref={sunRef} position={[0, 0, 0]}>
         {/* Radius , X-axis , Y-axis */}
         <sphereGeometry args={[1.5, 50, 50]} />
         <meshPhongMaterial

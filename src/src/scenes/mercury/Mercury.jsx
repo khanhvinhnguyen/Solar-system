@@ -23,17 +23,15 @@ const Mercury = ({ displacementScale }) => {
   });
 
   return (
-    <group ref={mercuryRef}>
-      <mesh castShadow receiveShadow>
-        {/* Radius , X-axis , Y-axis */}
-        <sphereGeometry args={[0.383, 32, 32]} />
-        <meshPhongMaterial
-          map={mercuryTexture}
-          shininess={1000}
-          displacementScale={displacementScale}
-        />
-      </mesh>
-    </group>
+    <mesh name="Mercury" ref={mercuryRef} castShadow receiveShadow>
+      {/* Radius , X-axis , Y-axis */}
+      <sphereGeometry args={[0.383, 32, 32]} />
+      <meshPhongMaterial
+        map={mercuryTexture}
+        shininess={1000}
+        displacementScale={displacementScale}
+      />
+    </mesh>
   );
 };
 

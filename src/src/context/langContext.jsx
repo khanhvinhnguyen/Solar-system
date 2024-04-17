@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 import intl from "react-intl-universal";
 
-export const LanguageContext = createContext();
+export const LanguageContext = createContext("en");
 
 const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState("en");

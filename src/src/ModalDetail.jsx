@@ -3,7 +3,7 @@ import { Modal } from "antd";
 import intl from "react-intl-universal";
 
 import { usePlanet } from "./context/planetSelectContext";
-import planetData from "../assets/data.json";
+import planetData from "../assets/planetData_EN.json";
 
 const PlanetModal = () => {
   const { selectedPlanet, selectPlanet } = usePlanet();

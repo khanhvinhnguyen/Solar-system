@@ -14,16 +14,16 @@ export default {
   'planetName.Neptune': 'Sao Hải Vương',
 
   // 2. Title detail
-  'title.volumeXEarths': 'Volume',
-  'title.orbitDistance': 'Orbit Distance',
-  'title.equatorialRadius': 'Equatorial Radius',
-  'title.surfaceGravity': 'Surface Gravity',
-  'title.rotationPeriodEarthDays': 'Rotation Period (Earth Days)',
-  'title.orbitalPeriod': 'Orbital Period',
-  'title.meanOrbitVelocity': 'Mean Orbit Velocity',
-  'title.surfaceTemperature': 'Surface Temperature',
-  'title.atmoshpericConstituents': 'Atmospheric Constituents',
-  'title.moons': 'Moons',
-  'title.rings': 'Rings',
-  'title.adjective': 'Adjective'
+  'title.volumeXEarths': 'Thể tích so với Trái Đất',
+  'title.orbitDistance': 'Khoảng cách quỹ đạo',
+  'title.equatorialRadius': 'Bán kính xích đạo',
+  'title.surfaceGravity': 'Trọng lực bề mặt',
+  'title.rotationPeriodEarthDays': 'Chu kỳ quay (Ngày Trái Đất)',
+  'title.orbitalPeriod': 'Chu kỳ quỹ đạo',
+  'title.meanOrbitVelocity': 'Vận tốc quỹ đạo trung bình',
+  'title.surfaceTemperature': 'Nhiệt độ bề mặt',
+  'title.atmoshpericConstituents': 'Thành phần khí quyển',
+  'title.moons': 'Mặt trăng',
+  'title.rings': 'Vành đai',
+  'title.adjective': 'Thuộc tính'
 };

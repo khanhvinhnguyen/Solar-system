@@ -23,7 +23,7 @@ export default {
   'title.meanOrbitVelocity': 'Vận tốc quỹ đạo trung bình',
   'title.surfaceTemperature': 'Nhiệt độ bề mặt',
   'title.atmoshpericConstituents': 'Thành phần khí quyển',
-  'title.moons': 'Mặt trăng',
+  'title.moons': 'Hành tinh vệ tinh',
   'title.rings': 'Vành đai',
   'title.adjective': 'Thuộc tính'
 };

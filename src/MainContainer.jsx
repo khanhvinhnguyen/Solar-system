@@ -1,5 +1,4 @@
 import { useRef, useState, Suspense } from "react";
-import intl from "react-intl-universal";
 import * as THREE from "three";
 import {
   useHelper,
@@ -9,6 +8,8 @@ import {
   ContactShadows,
   useGLTF,
 } from "@react-three/drei";
+
+import { usePlanet } from "./src/context/planetSelectContext";
 
 import AnimatedStars from "./AnimatedStars";
 import Sun from "./src/scenes/sun/Sun";
@@ -27,11 +28,10 @@ const MainContainer = () => {
   useHelper(directionalLightRef, THREE.DirectionalLightHelper, 1, "hotpink");
   useHelper(directionalLightRefTwo, THREE.DirectionalLightHelper, 1, "hotpink");
 
-  const [selectedPlanet, setSelectedPlanet] = useState(null);
+  const { selectPlanet } = usePlanet();
 
   const handlePlanetClick = (planetName) => {
-    console.log("planetName: ", intl.get(`planetName.${planetName}`));
-    setSelectedPlanet(planetName);
+    selectPlanet(planetName);
   };
 
   const SelectToZoom = ({ children }) => {

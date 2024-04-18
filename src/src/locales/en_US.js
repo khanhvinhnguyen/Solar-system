@@ -1,5 +1,7 @@
 export default {
   'general.settings': 'Settings',
+
+  // 1. Planet Name
   'planetName.Sun': 'Sun',
   'planetName.Mercury': 'Mercury',
   'planetName.Venus': 'Venus',
@@ -10,4 +12,18 @@ export default {
   'planetName.Saturn': 'Saturn',
   'planetName.Uranus': 'Uranus',
   'planetName.Neptune': 'Neptune',
+
+  // 2. Title detail
+  'title.volumeXEarths': 'Volume',
+  'title.orbitDistance': 'Orbit Distance',
+  'title.equatorialRadius': 'Equatorial Radius',
+  'title.surfaceGravity': 'Surface Gravity',
+  'title.rotationPeriodEarthDays': 'Rotation Period (Earth Days)',
+  'title.orbitalPeriod': 'Orbital Period',
+  'title.meanOrbitVelocity': 'Mean Orbit Velocity',
+  'title.surfaceTemperature': 'Surface Temperature',
+  'title.atmoshpericConstituents': 'Atmospheric Constituents',
+  'title.moons': 'Moons',
+  'title.rings': 'Rings',
+  'title.adjective': 'Adjective'
 };

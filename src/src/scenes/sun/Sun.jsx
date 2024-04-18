@@ -26,7 +26,7 @@ const Sun = () => {
 
   const planetsOrbitLine = Object.entries(planetsDistanceToSun).map(
     ([planetName, planetDistance]) => (
-      <mesh key={planetName} rotation={[Math.PI / 2, 0, 0]}>
+      <mesh name={planetName} key={planetName} rotation={[Math.PI / 2, 0, 0]}>
         <ringGeometry
           args={[planetDistance - 0.05, planetDistance + 0.05, 80]}
         />

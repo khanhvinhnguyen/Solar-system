@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Modal } from "antd";
 import intl from "react-intl-universal";
 
+import { LanguageContext } from "./context/langContext";
 import { usePlanet } from "./context/planetSelectContext";
-import planetData from "../assets/planetData_EN.json";
+import planetData_EN from "../assets/planetData_EN.json";
+import planetData_VN from "../assets/planetData_VN.json";
 
 const PlanetModal = () => {
+  const { language } = useContext(LanguageContext);
   const { selectedPlanet, selectPlanet } = usePlanet();
-  const planetInfo = selectedPlanet ? planetData[selectedPlanet] : null;
+
+  const planetDataLang = language == "en" ? planetData_EN : planetData_VN;
+  const planetInfo = selectedPlanet ? planetDataLang[selectedPlanet] : null;
 
   const handleCloseModal = () => {
     selectPlanet(null);

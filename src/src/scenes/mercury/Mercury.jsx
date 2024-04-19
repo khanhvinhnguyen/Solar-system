@@ -8,12 +8,12 @@ const Mercury = ({ displacementScale }) => {
   const mercuryPositionRef = useRef(new THREE.Vector3(4, 0, 0)); // Create a reference to the Mercury's position vector
 
   const [mercuryTexture] = useTexture(["/assets/mercury_map.jpg"]);
-
+  var angle = 0
   useFrame(({ clock }) => {
     const orbitSpeed = 0.241;
     const rotationSpeed = 0.0001;
 
-    const angle = clock.getElapsedTime() * 0.241;
+    const angle = clock.getElapsedTime() * 0.4787;
     const distance = 3.51; //4.5
     const x = Math.sin(angle) * distance;
     const z = Math.cos(angle) * distance;

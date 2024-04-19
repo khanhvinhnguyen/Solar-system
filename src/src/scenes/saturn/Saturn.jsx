@@ -11,10 +11,9 @@ const Saturn = ({ displacementScale }) => {
     "/assets/saturn_map.jpeg",
     "/assets/saturnRing_map.png",
   ]);
-
-  useFrame(() => {
+  useFrame(({clock}) => {
     // Calculate the Saturn's position based on its angle from the Sun
-    const angle = 29.46;
+    const angle = clock.getElapsedTime()*0.0964
     const distance = 85.851; // 24
     const x = Math.sin(angle) * distance;
     const z = Math.cos(angle) * distance;

@@ -8,10 +8,9 @@ const Venus = ({ displacementScale }) => {
   const venusPositionRef = useRef(new THREE.Vector3(6, 0, 0)); // Create a reference to the Venus's position vector
 
   const [venusTexture] = useTexture(["/assets/venus_map.jpeg"]);
-
-  useFrame(() => {
+  useFrame(({clock}) => {
     // Calculate the Venus's position based on its angle from the Sun
-    const angle = 0.615;
+    const angle = clock.getElapsedTime()*0.3502;
     const distance = 6.507; //6
     const x = Math.sin(angle) * distance;
     const z = Math.cos(angle) * distance;

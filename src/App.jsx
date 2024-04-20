@@ -15,7 +15,7 @@ function App() {
       <PlanetProvider>
         <Canvas
           shadows
-          camera={{ fov: 75, near: 0.1, far: 1000, position: [16, 8.5, 19.5] }}
+          camera={{ fov: 75, near: 0.1, far: 1000, position: [16, 15.5, 17.5] }}
         >
           {/* <Perf /> */}
           <OrbitControls />

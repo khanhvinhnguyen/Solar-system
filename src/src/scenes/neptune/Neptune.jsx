@@ -8,10 +8,10 @@ const Neptune = ({ displacementScale }) => {
   const neptuneRef = useRef();
   const neptunePositionRef = useRef(new THREE.Vector3(6, 0, 0)); // Create a reference to the Neptune's position vector
 
-  const [neptuneTexture] = useTexture(["/assets/neptune_map.jpeg"]);
-  useFrame(({clock}) => {
+  const [neptuneTexture] = useTexture(["../../../assets/neptune_map.jpeg"]);
+  useFrame(({ clock }) => {
     // Calculate the Neptune's position based on its angle from the Sun
-    const angle =clock.getElapsedTime()*0.05432;
+    const angle = clock.getElapsedTime() * 0.05432;
     const distance = 270.63; // 36
     const x = Math.sin(angle) * distance;
     const z = Math.cos(angle) * distance;

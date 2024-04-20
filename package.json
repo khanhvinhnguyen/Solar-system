@@ -1,6 +1,7 @@
 {
   "name": "solar-system-tutorial",
   "private": true,
+  "homepage": "https://khanhvinhnguyen.github.io/CS105-solar-system/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

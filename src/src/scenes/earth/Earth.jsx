@@ -12,13 +12,13 @@ const Earth = ({ displacementScale }) => {
 
   const [earthTexture, earthNormalMap, earthSpecularMap, earthDisplacementMap] =
     useTexture([
-      "/assets/earth_day.jpg",
-      "/assets/earth_normal.jpg",
-      "/assets/earth_specular.jpg",
-      "/assets/earth_displacement.jpg",
+      "../../../assets/earth_day.jpg",
+      "../../../assets/earth_normal.jpg",
+      "../../../assets/earth_specular.jpg",
+      "../../../assets/earth_displacement.jpg",
     ]);
   useFrame(({ clock }) => {
-    const angle = clock.getElapsedTime()*0.2978;
+    const angle = clock.getElapsedTime() * 0.2978;
     const distance = 9; // 9
     const x = Math.sin(angle) * distance;
     const z = Math.cos(angle) * distance;

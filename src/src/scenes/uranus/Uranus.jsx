@@ -7,10 +7,10 @@ const Uranus = ({ displacementScale }) => {
   const uranusRef = useRef();
   const uranusPositionRef = useRef(new THREE.Vector3(6, 0, 0)); // Create a reference to the Uranus's position vector
 
-  const [uranusTexture] = useTexture(["/assets/uranus_map.jpeg"]);
-  useFrame(({clock}) => {
+  const [uranusTexture] = useTexture(["../../../assets/uranus_map.jpeg"]);
+  useFrame(({ clock }) => {
     // Calculate the Uranus's position based on its angle from the Sun
-    const angle = clock.getElapsedTime()*0.06795;
+    const angle = clock.getElapsedTime() * 0.06795;
     const distance = 172.62; // 30
     const x = Math.sin(angle) * distance;
     const z = Math.cos(angle) * distance;

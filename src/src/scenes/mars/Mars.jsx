@@ -7,9 +7,9 @@ const Mars = ({ displacementScale }) => {
   const marsRef = useRef();
   const marsPositionRef = useRef(new THREE.Vector3(6, 0, 0)); // Create a reference to the Mars's position vector
 
-  const [marsTexture] = useTexture(["/assets/mars_map.jpeg"]);
-  useFrame(({clock}) => {
-    const angle = clock.getElapsedTime()*0.2408;
+  const [marsTexture] = useTexture(["../../../assets/mars_map.jpeg"]);
+  useFrame(({ clock }) => {
+    const angle = clock.getElapsedTime() * 0.2408;
     const distance = 13.716; // 12
     const x = Math.sin(angle) * distance;
     const z = Math.cos(angle) * distance;

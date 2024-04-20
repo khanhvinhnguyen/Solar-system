@@ -3,11 +3,13 @@ import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 
+import marsMap from "/assets/mars_map.jpeg";
+
 const Mars = ({ displacementScale }) => {
   const marsRef = useRef();
   const marsPositionRef = useRef(new THREE.Vector3(6, 0, 0)); // Create a reference to the Mars's position vector
 
-  const [marsTexture] = useTexture(["../../../assets/mars_map.jpeg"]);
+  const [marsTexture] = useTexture([marsMap]);
   useFrame(({ clock }) => {
     const angle = clock.getElapsedTime() * 0.2408;
     const distance = 13.716; // 12

@@ -2,18 +2,18 @@ import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 
+import moonMap from "/assets/moon_map.jpg";
+
 const Moon = () => {
   const moonRef = useRef();
 
-  const [moonTexture] = useTexture(["../../../assets/moon_map.jpg"]);
+  const [moonTexture] = useTexture([moonMap]);
   const xAxis = 2;
   useFrame(({ clock }) => {
-    // Orbit Rotation
     moonRef.current.position.x =
       Math.sin(clock.getElapsedTime() * 0.03) * xAxis;
     moonRef.current.position.z =
       Math.cos(clock.getElapsedTime() * 0.03) * xAxis;
-    // Axis Rotation
     moonRef.current.rotation.y += 0.002;
   });
 

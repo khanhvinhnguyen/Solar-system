@@ -2,13 +2,14 @@ import * as THREE from "three";
 import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
-import { distance } from "three/examples/jsm/nodes/Nodes.js";
+
+import neptuneMap from "/assets/neptune_map.jpeg";
 
 const Neptune = ({ displacementScale }) => {
   const neptuneRef = useRef();
   const neptunePositionRef = useRef(new THREE.Vector3(6, 0, 0)); // Create a reference to the Neptune's position vector
 
-  const [neptuneTexture] = useTexture(["../../../assets/neptune_map.jpeg"]);
+  const [neptuneTexture] = useTexture([neptuneMap]);
   useFrame(({ clock }) => {
     // Calculate the Neptune's position based on its angle from the Sun
     const angle = clock.getElapsedTime() * 0.05432;

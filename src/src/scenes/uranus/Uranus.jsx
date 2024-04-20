@@ -3,11 +3,13 @@ import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 
+import uranusMap from "/assets/uranus_map.jpeg";
+
 const Uranus = ({ displacementScale }) => {
   const uranusRef = useRef();
   const uranusPositionRef = useRef(new THREE.Vector3(6, 0, 0)); // Create a reference to the Uranus's position vector
 
-  const [uranusTexture] = useTexture(["../../../assets/uranus_map.jpeg"]);
+  const [uranusTexture] = useTexture([uranusMap]);
   useFrame(({ clock }) => {
     // Calculate the Uranus's position based on its angle from the Sun
     const angle = clock.getElapsedTime() * 0.06795;

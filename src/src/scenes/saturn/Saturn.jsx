@@ -3,13 +3,16 @@ import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 
+import saturnMap from "/assets/saturn_map.jpeg";
+import saturnRing from "/assets/saturnRing_map.png";
+
 const Saturn = ({ displacementScale }) => {
   const saturnRef = useRef();
   const saturnPositionRef = useRef(new THREE.Vector3(6, 0, 0)); // Create a reference to the Saturn's position vector
 
   const [saturnTexture, saturnRingTexture] = useTexture([
-    "../../../assets/saturn_map.jpeg",
-    "../../../assets/saturnRing_map.png",
+    saturnMap,
+    saturnRing,
   ]);
   useFrame(({ clock }) => {
     // Calculate the Saturn's position based on its angle from the Sun

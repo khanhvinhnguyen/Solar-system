@@ -3,11 +3,13 @@ import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 
+import mercuryMap from "/assets/mercury_map.jpg";
+
 const Mercury = ({ displacementScale }) => {
   const mercuryRef = useRef();
   const mercuryPositionRef = useRef(new THREE.Vector3(4, 0, 0)); // Create a reference to the Mercury's position vector
 
-  const [mercuryTexture] = useTexture(["../../../assets/mercury_map.jpg"]);
+  const [mercuryTexture] = useTexture([mercuryMap]);
   useFrame(({ clock }) => {
     const orbitSpeed = 0.241;
     const rotationSpeed = 0.0001;

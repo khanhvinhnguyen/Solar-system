@@ -3,11 +3,13 @@ import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 
+import venusMap from "/assets/venus_map.jpeg";
+
 const Venus = ({ displacementScale }) => {
   const venusRef = useRef();
   const venusPositionRef = useRef(new THREE.Vector3(6, 0, 0)); // Create a reference to the Venus's position vector
 
-  const [venusTexture] = useTexture(["../../../assets/venus_map.jpeg"]);
+  const [venusTexture] = useTexture([venusMap]);
   useFrame(({ clock }) => {
     // Calculate the Venus's position based on its angle from the Sun
     const angle = clock.getElapsedTime() * 0.3502;

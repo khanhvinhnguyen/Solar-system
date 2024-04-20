@@ -3,10 +3,12 @@ import * as THREE from "three";
 import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
+import sunMap from "/assets/sun_map.jpg";
+
 const Sun = () => {
   const sunRef = useRef();
 
-  const [sunTexture] = useTexture(["../../../assets/sun_map.jpg"]);
+  const [sunTexture] = useTexture([sunMap]);
 
   useFrame(() => {
     // Axis Rotation

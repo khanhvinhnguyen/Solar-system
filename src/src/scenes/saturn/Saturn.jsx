@@ -8,8 +8,8 @@ const Saturn = ({ displacementScale }) => {
   const saturnPositionRef = useRef(new THREE.Vector3(6, 0, 0)); // Create a reference to the Saturn's position vector
 
   const [saturnTexture, saturnRingTexture] = useTexture([
-    "../../../assets/saturn_map.jpeg",
-    "../../../assets/saturnRing_map.png",
+    "../../..../../../assets/saturn_map.jpeg",
+    "../../..../../../assets/saturnRing_map.png",
   ]);
   useFrame(({ clock }) => {
     // Calculate the Saturn's position based on its angle from the Sun

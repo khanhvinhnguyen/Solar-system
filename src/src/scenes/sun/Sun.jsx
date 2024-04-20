@@ -6,7 +6,7 @@ import { useFrame } from "@react-three/fiber";
 const Sun = () => {
   const sunRef = useRef();
 
-  const [sunTexture] = useTexture(["/assets/sun_map.jpg"]);
+  const [sunTexture] = useTexture(["../../../assets/sun_map.jpg"]);
 
   useFrame(() => {
     // Axis Rotation

@@ -7,7 +7,9 @@ const Mercury = ({ displacementScale }) => {
   const mercuryRef = useRef();
   const mercuryPositionRef = useRef(new THREE.Vector3(4, 0, 0)); // Create a reference to the Mercury's position vector
 
-  const [mercuryTexture] = useTexture(["../../../assets/mercury_map.jpg"]);
+  const [mercuryTexture] = useTexture([
+    "../../..../../../assets/mercury_map.jpg",
+  ]);
   useFrame(({ clock }) => {
     const orbitSpeed = 0.241;
     const rotationSpeed = 0.0001;

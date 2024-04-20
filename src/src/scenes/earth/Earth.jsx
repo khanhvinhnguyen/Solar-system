@@ -17,7 +17,6 @@ const Earth = ({ displacementScale }) => {
       "/assets/earth_specular.jpg",
       "/assets/earth_displacement.jpg",
     ]);
-  var angle = 0
   useFrame(({ clock }) => {
     const angle = clock.getElapsedTime()*0.2978;
     const distance = 9; // 9

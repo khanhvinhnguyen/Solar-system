@@ -7,9 +7,7 @@ const Jupiter = ({ displacementScale }) => {
   const jupiterRef = useRef();
   const jupiterPositionRef = useRef(new THREE.Vector3(6, 0, 0)); // Create a reference to the Jupiter's position vector
 
-  const [jupiterTexture] = useTexture([
-    "../../..../../../assets/jupiter_map.jpeg",
-  ]);
+  const [jupiterTexture] = useTexture(["../../../assets/jupiter_map.jpeg"]);
   useFrame(({ clock }) => {
     // Calculate the Jupiter's position based on its angle from the Sun
     const angle = clock.getElapsedTime() * 0.1305;

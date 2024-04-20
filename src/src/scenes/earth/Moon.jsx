@@ -5,7 +5,7 @@ import { useRef } from "react";
 const Moon = () => {
   const moonRef = useRef();
 
-  const [moonTexture] = useTexture(["../../..../../../assets/moon_map.jpg"]);
+  const [moonTexture] = useTexture(["../../../assets/moon_map.jpg"]);
   const xAxis = 2;
   useFrame(({ clock }) => {
     // Orbit Rotation

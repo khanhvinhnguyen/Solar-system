@@ -1,6 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { LanguageContext } from "./context/langContext";
 
+import englandImg from "/icons/england.png";
+import vietnamImg from "/icons/vietnam.png";
+
 const LanguageSelector = () => {
   const { language, toggleLanguage } = useContext(LanguageContext);
 
@@ -17,9 +20,9 @@ const LanguageSelector = () => {
         style={{ cursor: "pointer", marginRight: "10px" }}
       >
         {language === "en" ? (
-          <img src="/icons/england.png" alt="English Flag" />
+          <img src={englandImg} alt="English Flag" />
         ) : (
-          <img src="/icons/vietnam.png" alt="Vietnamese Flag" />
+          <img src={vietnamImg} alt="Vietnamese Flag" />
         )}
       </span>
     </div>

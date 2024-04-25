@@ -1,5 +1,9 @@
 export default {
   'general.settings': 'Settings',
+  'general.structure': 'Structure',
+  'settings.orbitLine': 'Orbit Line',
+  'language.english': 'English',
+  'language.vietnamese': 'Vietnamese',
 
   // 1. Planet Name
   'planetName.Sun': 'Sun',

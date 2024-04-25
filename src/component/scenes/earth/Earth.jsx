@@ -1,8 +1,9 @@
 import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import * as THREE from "three";
 
+import { SettingContext } from "../../context/settingContext";
 import Moon from "./Moon";
 import ISS from "./ISS";
 
@@ -13,7 +14,9 @@ import earthDisplacement from "/assets/earth_displacement.jpg";
 
 const Earth = ({ displacementScale }) => {
   const earthRef = useRef();
-  const earthPositionRef = useRef(new THREE.Vector3(8, 0, 0)); // Create a reference to the Earth's position vector
+  const earthPositionRef = useRef(new THREE.Vector3(8, 0, 0));
+
+  const { orbitLineState } = useContext(SettingContext);
 
   const [earthTexture, earthNormalMap, earthSpecularMap, earthDisplacementMap] =
     useTexture([earthDay, earthNormal, earthSpecular, earthDisplacement]);
@@ -45,15 +48,17 @@ const Earth = ({ displacementScale }) => {
 
       <group>
         <Moon />
-        <mesh rotation={[Math.PI / 2, 0, 0]}>
-          <ringGeometry args={[1.95, 2.05, 80]} />
-          <meshBasicMaterial
-            color={0xf5e96c}
-            opacity={0.2}
-            transparent={true}
-            side={THREE.DoubleSide}
-          />
-        </mesh>
+        {orbitLineState && (
+          <mesh rotation={[Math.PI / 2, 0, 0]}>
+            <ringGeometry args={[1.95, 2.05, 80]} />
+            <meshBasicMaterial
+              color={0xf5e96c}
+              opacity={0.2}
+              transparent={true}
+              side={THREE.DoubleSide}
+            />
+          </mesh>
+        )}
       </group>
     </group>
   );

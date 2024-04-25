@@ -1,17 +1,61 @@
+import { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import { Button, Divider, Drawer } from "antd";
+import { MenuOutlined } from "@ant-design/icons";
 import { Perf } from "r3f-perf";
-import MainContainer from "./MainContainer";
-import LanguageProvider from "./src/context/langContext";
-import LanguageSelector from "./src/langSelect";
+import intl from "react-intl-universal";
 
-import { PlanetProvider } from "./src/context/planetSelectContext";
-import PlanetModal from "./src/ModalDetail";
+import MainContainer from "./component/common/MainContainer";
+import { SettingProvider } from "./component/context/settingContext";
+import LanguageSelector from "./component/context/langSelect";
+import OrbitLineSelector from "./component/context/orbitLineCheck";
+
+import { PlanetProvider } from "./component/context/planetSelectContext";
+import PlanetModal from "./component/context/planetDrawer";
 
 function App() {
+  const [settingDrawer, setSettingDrawer] = useState(false);
+
+  const handleCloseSettings = (openDrawer) => {
+    setSettingDrawer(openDrawer);
+  };
+
+  const handleOpenSettings = (openDrawer) => {
+    setSettingDrawer(openDrawer);
+  };
+
   return (
-    <LanguageProvider>
-      <LanguageSelector />
+    <SettingProvider>
+      {/* settings */}
+      <Button
+        onClick={() => handleOpenSettings(true)}
+        style={{
+          height: "auto",
+          background: "#ffffff00",
+          border: "none",
+          color: "white",
+          position: "absolute",
+          top: "1rem",
+          right: "1rem",
+          zIndex: 1,
+        }}
+      >
+        <MenuOutlined style={{ fontSize: "24px" }} />
+      </Button>
+      <Drawer
+        title={intl.get(`general.settings`)}
+        open={settingDrawer}
+        onClose={() => handleCloseSettings(false)}
+        placement="right"
+        style={{ background: "#15151e", color: "white" }}
+      >
+        <LanguageSelector />
+        <Divider style={{ backgroundColor: "gray" }} />
+        <OrbitLineSelector />
+      </Drawer>
+
+      {/* Canvas */}
       <PlanetProvider>
         <Canvas
           shadows
@@ -23,7 +67,7 @@ function App() {
         </Canvas>
         <PlanetModal />
       </PlanetProvider>
-    </LanguageProvider>
+    </SettingProvider>
   );
 }
 

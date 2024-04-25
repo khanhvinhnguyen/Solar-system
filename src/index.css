@@ -11,3 +11,24 @@ body,
   margin: 0;
   padding: 0;
 }
+
+.ant-drawer-header {
+  background-color: #15151e;
+  border-radius: 0;
+}
+
+.ant-drawer-title {
+  color: #fff !important;
+}
+
+.ant-drawer-body {
+  background-color: #15151e;
+  color: #fff;
+  height: calc(100vh - 55px);
+}
+
+.ant-checkbox-wrapper {
+  span {
+    color: #fff;
+  }
+}

@@ -1,5 +1,9 @@
 export default {
   'general.settings': 'Cài đặt',
+  'general.structure': 'Cấu trúc',
+  'settings.orbitLine': 'Đường quỹ đạo',
+  'language.english': 'Tiếng Anh',
+  'language.vietnamese': 'Tiếng Việt',
 
   // 1. Planet Name
   'planetName.Sun': 'Mặt trời',

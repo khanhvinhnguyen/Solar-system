@@ -9,18 +9,18 @@ import {
   useGLTF,
 } from "@react-three/drei";
 
-import { usePlanet } from "./src/context/planetSelectContext";
+import { usePlanet } from "../context/planetSelectContext";
 
 import AnimatedStars from "./AnimatedStars";
-import Sun from "./src/scenes/sun/Sun";
-import Mercury from "./src/scenes/mercury/Mercury";
-import Venus from "./src/scenes/venus/Venus";
-import Earth from "./src/scenes/earth/Earth";
-import Mars from "./src/scenes/mars/Mars";
-import Jupiter from "./src/scenes/jupiter/Jupiter";
-import Saturn from "./src/scenes/saturn/Saturn";
-import Uranus from "./src/scenes/uranus/Uranus";
-import Neptune from "./src/scenes/neptune/Neptune";
+import Sun from "../scenes/sun/Sun";
+import Mercury from "../scenes/mercury/Mercury";
+import Venus from "../scenes/venus/Venus";
+import Earth from "../scenes/earth/Earth";
+import Mars from "../scenes/mars/Mars";
+import Jupiter from "../scenes/jupiter/Jupiter";
+import Saturn from "../scenes/saturn/Saturn";
+import Uranus from "../scenes/uranus/Uranus";
+import Neptune from "../scenes/neptune/Neptune";
 
 const MainContainer = () => {
   const directionalLightRef = useRef();
@@ -29,9 +29,15 @@ const MainContainer = () => {
   useHelper(directionalLightRefTwo, THREE.DirectionalLightHelper, 1, "hotpink");
 
   const { selectPlanet } = usePlanet();
+  const [hovered, setHover] = useState(false);
 
   const handlePlanetClick = (planetName) => {
     selectPlanet(planetName);
+  };
+
+  const handleHovered = (onHover) => {
+    console.log(onHover);
+    setHover(onHover);
   };
 
   const SelectToZoom = ({ children }) => {

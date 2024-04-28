@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { Button, Divider, Drawer } from "antd";
@@ -8,11 +8,11 @@ import intl from "react-intl-universal";
 
 import MainContainer from "./component/common/MainContainer";
 import { SettingProvider } from "./component/context/settingContext";
-import LanguageSelector from "./component/context/langSelect";
-import OrbitLineSelector from "./component/context/orbitLineCheck";
+import LanguageSelector from "./component/common/LangSelect";
+import OrbitLineSelector from "./component/common/OrbitLineCheck";
 
 import { PlanetProvider } from "./component/context/planetSelectContext";
-import PlanetModal from "./component/context/planetDrawer";
+import PlanetDrawer from "./component/common/PlanetDrawer";
 
 function App() {
   const [settingDrawer, setSettingDrawer] = useState(false);
@@ -28,19 +28,7 @@ function App() {
   return (
     <SettingProvider>
       {/* settings */}
-      <Button
-        onClick={() => handleOpenSettings(true)}
-        style={{
-          height: "auto",
-          background: "#ffffff00",
-          border: "none",
-          color: "white",
-          position: "absolute",
-          top: "1rem",
-          right: "1rem",
-          zIndex: 1,
-        }}
-      >
+      <Button className="setting" onClick={() => handleOpenSettings(true)}>
         <MenuOutlined style={{ fontSize: "24px" }} />
       </Button>
       <Drawer
@@ -59,13 +47,15 @@ function App() {
       <PlanetProvider>
         <Canvas
           shadows
-          camera={{ fov: 75, near: 0.1, far: 1000, position: [16, 15.5, 17.5] }}
+          camera={{ fov: 55, near: 0.1, far: 1000, position: [16, 8.5, 19.5] }}
         >
+          <color attach="background" args={["#15151e"]} />
+
           {/* <Perf /> */}
           <OrbitControls />
           <MainContainer />
         </Canvas>
-        <PlanetModal />
+        <PlanetDrawer />
       </PlanetProvider>
     </SettingProvider>
   );

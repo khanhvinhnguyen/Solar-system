@@ -1,13 +1,8 @@
-import { useRef, useState, Suspense } from "react";
+import { useContext, useRef, useState } from "react";
 import * as THREE from "three";
-import {
-  useHelper,
-  Bounds,
-  useBounds,
-  OrbitControls,
-  ContactShadows,
-  useGLTF,
-} from "@react-three/drei";
+import { useHelper } from "@react-three/drei";
+
+import CameraPositionLogging from "../helpers/CameraPositionLogging";
 
 import { usePlanet } from "../context/planetSelectContext";
 
@@ -29,34 +24,14 @@ const MainContainer = () => {
   useHelper(directionalLightRefTwo, THREE.DirectionalLightHelper, 1, "hotpink");
 
   const { selectPlanet } = usePlanet();
-  const [hovered, setHover] = useState(false);
 
   const handlePlanetClick = (planetName) => {
     selectPlanet(planetName);
   };
 
-  const handleHovered = (onHover) => {
-    console.log(onHover);
-    setHover(onHover);
-  };
-
-  const SelectToZoom = ({ children }) => {
-    const api = useBounds();
-    return (
-      <group
-        onClick={(e) => (
-          e.stopPropagation(), e.delta <= 2 && api.refresh(e.object).fit()
-        )}
-        onPointerMissed={(e) => e.button === 0 && api.refresh().fit()}
-      >
-        {children}
-      </group>
-    );
-  };
-
   return (
     <>
-      <color attach="background" args={["#15151e"]} />
+      <CameraPositionLogging event="mousedown" />
       <AnimatedStars />
       {/* <directionalLight
         castShadow
@@ -70,7 +45,7 @@ const MainContainer = () => {
         ref={directionalLightRefTwo}
         position={[0, 0, -10]}
       /> */}
-      {/* <ambientLight /> */}
+      <ambientLight intensity={0.1} />
 
       <group onClick={(e) => handlePlanetClick(e.object.name)}>
         <Sun />
@@ -83,22 +58,6 @@ const MainContainer = () => {
         <Uranus />
         <Neptune />
       </group>
-
-      {/* <Suspense fallback={null}>
-          <Bounds fit clip observe margin={1.2}>
-            <SelectToZoom>
-              <Sun />
-              <Mercury />
-              <Venus />
-              <Earth displacementScale={0.15} />
-              <Mars />
-              <Jupiter />
-              <Saturn />
-              <Uranus />
-              <Neptune />
-            </SelectToZoom>
-          </Bounds>
-      </Suspense> */}
     </>
   );
 };

@@ -3,9 +3,9 @@ import intl from "react-intl-universal";
 
 export const SettingContext = createContext({
   language: "en",
-  toggleLanguage: () => {}, // Default empty function
+  toggleLanguage: () => {},
   orbitLineState: false,
-  toggleOrbitLine: () => {}, // Default empty function
+  toggleOrbitLine: () => {},
 });
 
 export const SettingProvider = ({ children }) => {

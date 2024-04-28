@@ -33,50 +33,48 @@ const PlanetDrawer = () => {
       {/* Info  */}
       <ul>
         <li>
-          <strong>{intl.get(`title.volumeXEarths`)}:</strong>{" "}
-          {planetInfo.volumeXEarths}
+          <strong>{intl.get(`title.introduction`)}</strong>{" "}
+          <br></br>
+          {planetInfo.introduction}
         </li>
+        <br></br>
         <li>
-          <strong>{intl.get(`title.orbitDistance`)}:</strong>{" "}
-          {planetInfo.orbitDistance}
+          <strong>{intl.get(`title.encyclopedia`)}</strong>
         </li>
-        <li>
-          <strong>{intl.get(`title.equatorialRadius`)}:</strong>{" "}
-          {planetInfo.equatorialRadius}
-        </li>
-        <li>
-          <strong>{intl.get(`title.surfaceGravity`)}:</strong>{" "}
+
+          {"- "}{intl.get(`title.equatorialDiameter`)}:{" "}
+          {planetInfo.equatorialDiameter}
+          <br></br>
+          {"- "}{intl.get(`title.mass`)}:{" "}
+          {planetInfo.mass}
+          <br></br>
+          {"- "}{intl.get(`title.distance`)}:{" "}
+          {planetInfo.distance}
+          <br></br>
+          {"- "}{intl.get(`title.rotationPeriod`)}:{" "}
+          {planetInfo.rotationPeriod}
+          <br></br>
+          {"- "}{intl.get(`title.orbitPeriod`)}:{" "}
+          {planetInfo.orbitPeriod}
+          <br></br>
+          {"- "}{intl.get(`title.surfaceGravity`)}:{" "}
           {planetInfo.surfaceGravity}
-        </li>
-        <li>
-          <strong>{intl.get(`title.rotationPeriodEarthDays`)}:</strong>{" "}
-          {planetInfo.rotationPeriodEarthDays}
-        </li>
-        <li>
-          <strong>{intl.get(`title.orbitalPeriod`)}:</strong>{" "}
-          {planetInfo.orbitalPeriod}
-        </li>
-        <li>
-          <strong>{intl.get(`title.meanOrbitVelocity`)}:</strong>{" "}
-          {planetInfo.meanOrbitVelocity}
-        </li>
-        <li>
-          <strong>{intl.get(`title.surfaceTemperature`)}:</strong>{" "}
+          <br></br>
+          {"- "}{intl.get(`title.surfaceTemperature`)}:{" "}
           {planetInfo.surfaceTemperature}
-        </li>
+          <br></br>
+        <br></br>
+
         <li>
-          <strong>{intl.get(`title.atmoshpericConstituents`)}:</strong>{" "}
-          {planetInfo.atmoshpericConstituents}
+          <strong>{intl.get(`title.anotherInformation`)}</strong>
         </li>
-        <li>
-          <strong>{intl.get(`title.moons`)}:</strong> {planetInfo.moons}
-        </li>
-        <li>
-          <strong>{intl.get(`title.rings`)}:</strong> {planetInfo.rings}
-        </li>
-        <li>
-          <strong>{intl.get(`title.adjective`)}:</strong> {planetInfo.adjective}
-        </li>
+          {planetInfo.information1}
+          <br></br>
+          {planetInfo.information2}
+          <br></br>
+          {planetInfo.information3}
+          <br></br>
+          {planetInfo.information4}
       </ul>
 
       <Divider style={{ backgroundColor: "gray" }} />

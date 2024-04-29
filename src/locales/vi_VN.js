@@ -1,12 +1,12 @@
 export default {
-  'general.settings': 'Cài đặt',
-  'general.structure': 'Cấu trúc',
-  'settings.orbitLine': 'Đường quỹ đạo',
-  'language.english': 'Tiếng Anh',
-  'language.vietnamese': 'Tiếng Việt',
+  'general.settings': 'Settings',
+  'general.structure': 'Structure',
+  'settings.orbitLine': 'Orbit Line',
+  'language.english': 'English',
+  'language.vietnamese': 'Vietnamese',
 
   // 1. Planet Name
-  'planetName.Sun': 'Mặt trời',
+  'planetName.Sun': 'Mặt Trời',
   'planetName.Mercury': 'Sao Thủy',
   'planetName.Venus': 'Sao Kim',
   'planetName.Earth': 'Trái Đất',
@@ -18,16 +18,15 @@ export default {
   'planetName.Neptune': 'Sao Hải Vương',
 
   // 2. Title detail
-  'title.volumeXEarths': 'Thể tích so với Trái Đất',
-  'title.orbitDistance': 'Khoảng cách quỹ đạo',
-  'title.equatorialRadius': 'Bán kính xích đạo',
+  'title.introduction': 'GIỚI THIỆU',
+  'title.encyclopedia': 'BÁCH KHOA TOÀN THƯ',
+  'title.equatorialDiameter': 'Đường kính xích đạo',
+  'title.mass': 'Khối lượng',
+  'title.distance': 'Khoảng cách',
+  'title.rotationPeriod': 'Chu kỳ quay',
+  'title.orbitPeriod': 'Chu kỳ quỹ đạo',
   'title.surfaceGravity': 'Trọng lực bề mặt',
-  'title.rotationPeriodEarthDays': 'Chu kỳ quay (Ngày Trái Đất)',
-  'title.orbitalPeriod': 'Chu kỳ quỹ đạo',
-  'title.meanOrbitVelocity': 'Vận tốc quỹ đạo trung bình',
   'title.surfaceTemperature': 'Nhiệt độ bề mặt',
-  'title.atmoshpericConstituents': 'Thành phần khí quyển',
-  'title.moons': 'Hành tinh vệ tinh',
-  'title.rings': 'Vành đai',
-  'title.adjective': 'Thuộc tính'
+  'title.anotherInformation': 'THÔNG TIN KHÁC',
+
 };

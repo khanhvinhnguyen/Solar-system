@@ -1,23 +1,39 @@
 import * as THREE from "three";
 import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useRef } from "react";
+import { useRef, useContext, useState } from "react";
+
+import { SettingContext } from "../../context/SettingContext";
 
 import marsMap from "/assets/mars_map.jpeg";
 
 const Mars = ({ displacementScale }) => {
+  const { planetSpeed } = useContext(SettingContext);
+
   const marsRef = useRef();
-  const marsPositionRef = useRef(new THREE.Vector3(6, 0, 0)); // Create a reference to the Mars's position vector
+  const previousElapsedTime = useRef(0);
+  const [currentMercuryPosition, setCurrentMercuryPosition] = useState(
+    new THREE.Vector3(28, 0, -6)
+  );
 
   const [marsTexture] = useTexture([marsMap]);
+
   useFrame(({ clock }) => {
-    const angle = clock.getElapsedTime() * 0.2408;
-    const distance = 13.716; // 12
-    const x = Math.sin(angle) * distance;
-    const z = Math.cos(angle) * distance;
-    marsRef.current.position.set(x, 0, z);
-    marsRef.current.rotation.y += 0.024;
-    marsPositionRef.current = marsRef.current.position;
+    const elapsedTime = clock.getElapsedTime();
+
+    if (planetSpeed !== 0) {
+      const angle = elapsedTime * 0.2408 * planetSpeed;
+      const distance = 13.716; // 12
+      const x = Math.sin(angle) * distance;
+      const z = Math.cos(angle) * distance;
+      marsRef.current.position.set(x, 0, z);
+      marsRef.current.rotation.y += 0.024 * planetSpeed;
+      setCurrentMercuryPosition(new THREE.Vector3(x, 0, z));
+    } else {
+      marsRef.current.position.copy(currentMercuryPosition);
+    }
+
+    previousElapsedTime.current = elapsedTime;
   });
 
   return (

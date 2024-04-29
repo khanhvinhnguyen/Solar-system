@@ -82,3 +82,36 @@ body,
     }
   }
 }
+
+.control_speed {
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  bottom: 1rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  gap: 1rem;
+  margin-left: 30px;
+
+  Button {
+    height: auto;
+    padding: 3px 15px;
+    display: flex;
+    align-items: center;
+    background: #15151e;
+    color: white;
+
+    span {
+      font-size: 32px;
+    }
+  }
+
+  h1 {
+    color: #fff;
+    margin-left: 15px;
+  }
+}
+
+.ant-btn:disabled > * {
+  color: red;
+}

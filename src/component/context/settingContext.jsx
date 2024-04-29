@@ -6,11 +6,14 @@ export const SettingContext = createContext({
   toggleLanguage: () => {},
   orbitLineState: false,
   toggleOrbitLine: () => {},
+  planetSpeed: 1,
+  handleSpeedPlanet: () => {},
 });
 
 export const SettingProvider = ({ children }) => {
   const [language, setLanguage] = useState("en");
   const [orbitLineState, setOrbitLineState] = useState(false);
+  const [planetSpeed, setPlanetSpeed] = useState(1);
 
   useEffect(() => {
     loadLocale(language);
@@ -22,6 +25,10 @@ export const SettingProvider = ({ children }) => {
 
   const toggleOrbitLine = () => {
     setOrbitLineState((prevOrbitLineState) => !prevOrbitLineState);
+  };
+
+  const handleSpeedPlanet = (value) => {
+    setPlanetSpeed(value);
   };
 
   const loadLocale = async (locale) => {
@@ -43,7 +50,14 @@ export const SettingProvider = ({ children }) => {
 
   return (
     <SettingContext.Provider
-      value={{ language, toggleLanguage, orbitLineState, toggleOrbitLine }}
+      value={{
+        language,
+        toggleLanguage,
+        orbitLineState,
+        toggleOrbitLine,
+        planetSpeed,
+        handleSpeedPlanet,
+      }}
     >
       {children}
     </SettingContext.Provider>

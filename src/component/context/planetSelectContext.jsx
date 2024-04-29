@@ -4,7 +4,7 @@ const PlanetContext = createContext(null);
 
 export const PlanetProvider = ({ children }) => {
   const [selectedPlanet, setSelectedPlanet] = useState(null);
-  const [structureCheck, setStructureCheck] = useState(false);
+  // const [structureCheck, setStructureCheck] = useState(false);
 
   const selectPlanet = (planet) => {
     setSelectedPlanet(planet);

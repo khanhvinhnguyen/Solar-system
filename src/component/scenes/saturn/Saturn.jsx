@@ -1,28 +1,41 @@
 import * as THREE from "three";
 import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useRef } from "react";
+import { useRef, useContext, useState } from "react";
+
+import { SettingContext } from "../../context/SettingContext";
 
 import saturnMap from "/assets/saturn_map.jpeg";
 import saturnRing from "/assets/saturnRing_map.png";
 
 const Saturn = ({ displacementScale }) => {
-  const saturnRef = useRef();
-  const saturnPositionRef = useRef(new THREE.Vector3(6, 0, 0)); // Create a reference to the Saturn's position vector
+  const { planetSpeed } = useContext(SettingContext);
 
+  const saturnRef = useRef();
+  const previousElapsedTime = useRef(0);
+  const [currentSaturnPosition, setCurrentSaturnPosition] = useState(
+    new THREE.Vector3(22, 0, 22)
+  );
   const [saturnTexture, saturnRingTexture] = useTexture([
     saturnMap,
     saturnRing,
   ]);
   useFrame(({ clock }) => {
-    // Calculate the Saturn's position based on its angle from the Sun
-    const angle = clock.getElapsedTime() * 0.0964;
-    const distance = 85.851; // 24
-    const x = Math.sin(angle) * distance;
-    const z = Math.cos(angle) * distance;
-    saturnRef.current.position.set(x, 0, z);
-    saturnRef.current.rotation.y += 0.01057;
-    saturnPositionRef.current = saturnRef.current.position;
+    const elapsedTime = clock.getElapsedTime();
+
+    if (planetSpeed !== 0) {
+      const angle = elapsedTime * 0.0964 * planetSpeed;
+      const distance = 85.851; // 24
+      const x = Math.sin(angle) * distance;
+      const z = Math.cos(angle) * distance;
+      saturnRef.current.position.set(x, 0, z);
+      saturnRef.current.rotation.y += 0.01057 * planetSpeed;
+      setCurrentSaturnPosition(new THREE.Vector3(x, 0, z));
+    } else {
+      saturnRef.current.position.copy(currentSaturnPosition);
+    }
+
+    previousElapsedTime.current = elapsedTime;
   });
 
   return (

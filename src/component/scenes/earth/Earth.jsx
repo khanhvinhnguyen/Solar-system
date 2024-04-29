@@ -1,17 +1,9 @@
-import React, {
-  useContext,
-  useRef,
-  useCallback,
-  useEffect,
-  useState,
-} from "react";
+import { useContext, useRef, useState } from "react";
 import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-
 import * as THREE from "three";
 
-import { SettingContext } from "../../context/settingContext";
-import { usePlanet } from "../../context/planetSelectContext";
+import { SettingContext } from "../../context/SettingContext";
 import Moon from "./Moon";
 
 import earthDay from "/assets/earth_day.jpg";
@@ -21,15 +13,13 @@ import earthDisplacement from "/assets/earth_displacement.jpg";
 import earthNight from "/assets/earth_nightmap.jpeg";
 
 const Earth = ({ displacementScale }) => {
-  const { selectPlanet } = usePlanet();
-  const { orbitLineState } = useContext(SettingContext);
+  const { orbitLineState, planetSpeed } = useContext(SettingContext);
 
   const earthRef = useRef();
-  const earthPositionRef = useRef(new THREE.Vector3(8, 0, 0));
-  const clockRef = useRef(new THREE.Clock());
-
-  const [hovered, hover] = useState(false);
-  const [followingEarth, setFollowingEarth] = useState(false);
+  const previousElapsedTime = useRef(0);
+  const [currentEarthPosition, setCurrentEarthPosition] = useState(
+    new THREE.Vector3(1, 0, 0)
+  );
 
   const [
     earthTexture,
@@ -45,59 +35,27 @@ const Earth = ({ displacementScale }) => {
     earthNight,
   ]);
 
-  const updateEarthPosition = useCallback(() => {
-    const angle = clockRef.current.getElapsedTime() * 0.5;
-    const distance = 9;
-    const x = Math.sin(angle) * distance;
-    const z = Math.cos(angle) * distance;
-    earthRef.current.position.set(x, 0, z);
-    earthRef.current.rotation.y += 9 / 365;
-  }, []);
+  useFrame(({ clock }) => {
+    const elapsedTime = clock.getElapsedTime();
 
-  const toggleFollowingEarth = () => {
-    setFollowingEarth((prevFollowingEarth) => !prevFollowingEarth);
-  };
-
-  useEffect(() => {
-    document.body.style.cursor = hovered ? "pointer" : "auto";
-  }, [hovered]);
-
-  useEffect(() => {
-    if (followingEarth == true) {
-      selectPlanet("Earth");
-    }
-  }, [followingEarth]);
-
-  useFrame(({ camera }) => {
-    updateEarthPosition();
-
-    const earthPositionRef = earthRef.current.position;
-    const cameraTargetPosition = new THREE.Vector3(
-      earthPositionRef.x + 1,
-      earthPositionRef.y + 2,
-      earthPositionRef.z + 3
-    );
-
-    if (followingEarth) {
-      camera.lookAt(earthPositionRef);
-      camera.position.copy(cameraTargetPosition);
+    if (planetSpeed !== 0) {
+      const angle = elapsedTime * 0.2978 * planetSpeed;
+      const distance = 9; // 9
+      const x = Math.sin(angle) * distance;
+      const z = Math.cos(angle) * distance;
+      earthRef.current.position.set(x, 0, z);
+      earthRef.current.rotation.y += 0.0043 * planetSpeed;
+      setCurrentEarthPosition(new THREE.Vector3(x, 0, z));
     } else {
-      const originalCameraTarget = new THREE.Vector3(0, 0, 0);
-      camera.lookAt(originalCameraTarget);
-      // const originalCameraPosition = new THREE.Vector3(16.14, 8.32, 19.81);
-      // camera.position.copy(originalCameraPosition);
+      earthRef.current.position.copy(currentEarthPosition);
     }
+
+    previousElapsedTime.current = elapsedTime;
   });
 
   return (
     <group ref={earthRef}>
-      <mesh
-        castShadow
-        receiveShadow
-        onClick={toggleFollowingEarth}
-        onPointerOver={() => hover(true)}
-        onPointerOut={() => hover(false)}
-      >
+      <mesh name="Earth" castShadow receiveShadow>
         {/* Radius , X-axis , Y-axis */}
         <sphereGeometry args={[1, 50, 50]} />
         <meshPhongMaterial
@@ -109,7 +67,6 @@ const Earth = ({ displacementScale }) => {
           displacementScale={displacementScale}
           emissiveMap={earthEmissiveMap}
           emissive={0xffffff}
-          emissiveIntensity={hovered ? 20 : 1.5}
         />
       </mesh>
       {/* <ISS /> */}

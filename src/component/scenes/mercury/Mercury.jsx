@@ -1,26 +1,38 @@
 import * as THREE from "three";
 import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useRef } from "react";
+import { useRef, useContext, useState } from "react";
+
+import { SettingContext } from "../../context/SettingContext";
 
 import mercuryMap from "/assets/mercury_map.jpg";
 
 const Mercury = ({ displacementScale }) => {
+  const { planetSpeed } = useContext(SettingContext);
   const mercuryRef = useRef();
-  const mercuryPositionRef = useRef(new THREE.Vector3(4, 0, 0)); // Create a reference to the Mercury's position vector
+  const previousElapsedTime = useRef(0);
+  const [currentMercuryPosition, setCurrentMercuryPosition] = useState(
+    new THREE.Vector3(-4, 0, 0)
+  );
 
   const [mercuryTexture] = useTexture([mercuryMap]);
-  useFrame(({ clock }) => {
-    const orbitSpeed = 0.241;
-    const rotationSpeed = 0.0001;
 
-    const angle = clock.getElapsedTime() * 0.4787;
-    const distance = 3.51; //4.5
-    const x = Math.sin(angle) * distance;
-    const z = Math.cos(angle) * distance;
-    mercuryRef.current.position.set(x, 0, z);
-    mercuryRef.current.rotation.y += 0.0001;
-    mercuryPositionRef.current = mercuryRef.current.position;
+  useFrame(({ clock }) => {
+    const elapsedTime = clock.getElapsedTime();
+
+    if (planetSpeed !== 0) {
+      const angle = elapsedTime * 0.4787 * planetSpeed;
+      const distance = 3.51;
+      const x = Math.sin(angle) * distance;
+      const z = Math.cos(angle) * distance;
+      mercuryRef.current.position.set(x, 0, z);
+      mercuryRef.current.rotation.y += 0.0001 * planetSpeed;
+      setCurrentMercuryPosition(new THREE.Vector3(x, 0, z));
+    } else {
+      mercuryRef.current.position.copy(currentMercuryPosition);
+    }
+
+    previousElapsedTime.current = elapsedTime;
   });
 
   return (

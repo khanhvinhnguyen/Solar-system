@@ -3,19 +3,18 @@ import * as THREE from "three";
 import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
-import { SettingContext } from "../../context/settingContext";
+import { SettingContext } from "../../context/SettingContext";
 
 import sunMap from "/assets/sun_map.jpg";
 
 const Sun = () => {
   const sunRef = useRef();
-  const { orbitLineState } = useContext(SettingContext);
+  const { orbitLineState, planetSpeed } = useContext(SettingContext);
 
   const [sunTexture] = useTexture([sunMap]);
 
   useFrame(() => {
-    // Axis Rotation
-    sunRef.current.rotation.y -= 0.002;
+    sunRef.current.rotation.y -= 0.002 * planetSpeed;
   });
 
   const planetsDistanceToSun = {
@@ -48,7 +47,6 @@ const Sun = () => {
   return (
     <group>
       <mesh name="Sun" ref={sunRef} position={[0, 0, 0]}>
-        {/* Radius , X-axis , Y-axis */}
         <sphereGeometry args={[1.5, 50, 50]} />
         <meshPhongMaterial
           map={sunTexture}

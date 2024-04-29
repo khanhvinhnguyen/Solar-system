@@ -7,12 +7,16 @@ import { Perf } from "r3f-perf";
 import intl from "react-intl-universal";
 
 import MainContainer from "./component/common/MainContainer";
-import { SettingProvider } from "./component/context/settingContext";
+import {
+  SettingProvider,
+  SettingContext,
+} from "./component/context/SettingContext";
 import LanguageSelector from "./component/common/LangSelect";
 import OrbitLineSelector from "./component/common/OrbitLineCheck";
 
-import { PlanetProvider } from "./component/context/planetSelectContext";
+import { PlanetProvider } from "./component/context/PlanetSelectContext";
 import PlanetDrawer from "./component/common/PlanetDrawer";
+import PlanetSpeed from "./component/common/PlanetSpeed";
 
 function App() {
   const [settingDrawer, setSettingDrawer] = useState(false);
@@ -42,6 +46,9 @@ function App() {
         <Divider style={{ backgroundColor: "gray" }} />
         <OrbitLineSelector />
       </Drawer>
+
+      {/* Planet speed */}
+      <PlanetSpeed />
 
       {/* Canvas */}
       <PlanetProvider>

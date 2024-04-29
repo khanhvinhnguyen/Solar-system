@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import intl from "react-intl-universal";
 
-import { SettingContext } from "../context/settingContext";
+import { SettingContext } from "../context/SettingContext";
 
 import englandImg from "/icons/england.png";
 import vietnamImg from "/icons/vietnam.png";

@@ -4,8 +4,8 @@ import { CloseOutlined } from "@ant-design/icons";
 import intl from "react-intl-universal";
 import * as THREE from "three";
 
-import { SettingContext } from "../context/settingContext";
-import { usePlanet } from "../context/planetSelectContext";
+import { SettingContext } from "../context/SettingContext";
+import { usePlanet } from "../context/PlanetSelectContext";
 import planetData_EN from "../../assets/planetData_EN.json";
 import planetData_VN from "../../assets/planetData_VN.json";
 

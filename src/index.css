@@ -32,3 +32,53 @@ body,
     color: #fff;
   }
 }
+
+.setting {
+  height: auto;
+  background: #ffffff00;
+  border: none;
+  color: white;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1;
+}
+
+.planetDrawer {
+  width: 378px;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  background: #15151e;
+  color: white;
+  top: 0;
+
+  .planetDrawer_title {
+    display: flex;
+    margin: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+
+    Button {
+      background: #ffffff00;
+      border: none;
+      color: white;
+      font-size: 24px;
+
+      span {
+        display: flex;
+      }
+    }
+  }
+
+  ul {
+    margin: 1.5rem;
+  }
+
+  .ant-checkbox-wrapper {
+    margin-left: 1.5rem;
+    span {
+      color: #fff;
+    }
+  }
+}

@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
-import { Checkbox, Drawer, Divider } from "antd";
+import { Checkbox, Divider, Button } from "antd";
+import { CloseOutlined } from "@ant-design/icons";
 import intl from "react-intl-universal";
+import * as THREE from "three";
 
 import { SettingContext } from "../context/settingContext";
-import { usePlanet } from "./planetSelectContext";
+import { usePlanet } from "../context/planetSelectContext";
 import planetData_EN from "../../assets/planetData_EN.json";
 import planetData_VN from "../../assets/planetData_VN.json";
 
@@ -23,13 +25,15 @@ const PlanetDrawer = () => {
   };
 
   return planetInfo ? (
-    <Drawer
-      title={intl.get(`planetName.${selectedPlanet}`)}
-      open={selectedPlanet !== null}
-      onClose={handleCloseDrawer}
-      placement="left"
-      style={{ background: "#15151e", color: "white" }}
-    >
+    <div className="planetDrawer">
+      {/* Title */}
+      <div className="planetDrawer_title" style={{ display: "flex" }}>
+        <h1>{intl.get(`planetName.${selectedPlanet}`)}</h1>
+        <Button onClick={handleCloseDrawer}>
+          <CloseOutlined />
+        </Button>
+      </div>
+
       {/* Info  */}
       <ul>
         <li>
@@ -83,7 +87,7 @@ const PlanetDrawer = () => {
       <Checkbox onChange={handleStructure}>
         {intl.get(`general.structure`)}
       </Checkbox>
-    </Drawer>
+    </div>
   ) : null;
 };
 

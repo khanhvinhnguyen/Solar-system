@@ -9,10 +9,11 @@
     "orbitPeriod": "225 M YEARS",
     "surfaceGravity": "274 M/S^2",
     "surfaceTemperature": "5778 K (5505 C)",
-
-    "information1": "- COMPOSITION: Roughly three-quarters of the Sun's mass is hydrogen, with the rest mostly helium. Only 1.69% of the Sun (which is still 5628 times the mass of the Earth) is made up of heavier elements like carbon, iron, neon and oxygen.",
-    "information2": "- DISTANCE: The mean distance of the Sun from the Earth is approximately 149.6 million kilometers (1 AU). On average, it takes light from the Sun about 8 minutes and 19 seconds to reach the Earth.",
-    "information3": "- GALAXY: Once thought to be a relatively insignificant star, the Sun is now considered to be brighter than about 85% of the stars in the Milky Way galaxy."
+    "information": {
+      "composition":"Roughly three-quarters of the Sun's mass is hydrogen, with the rest mostly helium. Only 1.69% of the Sun (which is still 5628 times the mass of the Earth) is made up of heavier elements like carbon, iron, neon and oxygen.",
+      "distance":"The mean distance of the Sun from the Earth is approximately 149.6 million kilometers (1 AU). On average, it takes light from the Sun about 8 minutes and 19 seconds to reach the Earth.",
+      "galaxy":"Once thought to be a relatively insignificant star, the Sun is now considered to be brighter than about 85% of the stars in the Milky Way galaxy."
+    }
   },
   "Mercury": {
     "introduction": "Mercury is the innermost and smallest planet of the Solar System. Because it has almost no atmosphere to retain heat, Mercury's surface experiences the greatest temperature variation of all the planets.",
@@ -24,7 +25,11 @@
     "orbitPeriod": "88 DAYS",
     "surfaceGravity": "3.7 M/S^2",
     "surfaceTemperature": "167 C",
-    "information1": "- OBSERVATION: Mercury appears as a morning or evening star from Earth, but due to its proximity to Sun, it is very hard to see. Still, Mercury can be observed at least twice a year: in spring at dusk and in autumn before dawn."
+    "information": {
+      "composition":"Mercury's composition is mainly metallic with a silicate mantle. It has a relatively large iron core which is about 40% of its volume.",
+      "distance":"Mercury's orbit is highly eccentric, meaning it is considerably elliptical. Its closest approach to the Sun (perihelion) is about 46 million kilometers while the farthest point (aphelion) is about 70 million kilometers.",
+      "observation":"Mercury appears as a morning or evening star from Earth, but due to its proximity to Sun, it is very hard to see. Still, Mercury can be observed at least twice a year: in spring at dusk and in autumn before dawn."
+    }
   },
   "Venus": {
     "introduction": "Although Venus has very similar size and interior structure as Earth, its vulcanic surface and extremely hot and dense atmosphere makes it one of the most inhospitable places in the Solar System.",
@@ -36,8 +41,10 @@
     "orbitPeriod": "225 DAYS",
     "surfaceGravity": "8.9 M/S^2",
     "surfaceTemperature": "462 C",
-    "information1": "- ATMOSPHERE: Thick clouds of sulfuric acid and dust reflect most of the Sun's light back to space, while carbon dioxide traps the Sun's heat inside the atmosphere, causing a runaway greenhouse effect.",
-    "information2": "- OBSERVATION: Venus is one of the brightest objects in our night sky - second only to the Moon. It appears as either an evening or a morning star."
+    "information": {
+      "atmosphere": "Thick clouds of sulfuric acid and dust reflect most of the Sun's light back to space, while carbon dioxide traps the Sun's heat inside the atmosphere, causing a runaway greenhouse effect.",
+      "observation":"Venus is one of the brightest objects in our night sky second only to the Moon. It appears as either an evening or a morning star."
+    }
   },
   "Earth": {
     "introduction": "Our homeworld is the densest of the eight planets in the Solar System. It is also the largest of the four terrestrial planets.",
@@ -49,9 +56,11 @@
     "orbitPeriod": "1 YEAR",
     "surfaceGravity": "9.8 M/S^2",
     "surfaceTemperature": "15 C",
-    "information1": "- SURFACE: About 71% of the Earth's suface is covered by salt water oceans, and the remaining 30% is taken up by the seven continental landmasses. Earth's outer surface is also divided into several rigid segments, or tectonic plates, that migrate across the surface over periods of millions of years.",
-    "information2": "- AXIAL TILT: Today, the Earth is tilted on its axis by 23.4, producing seasonal variations in climate and weather across the surface of the planet during the course of a year.",
-    "information3": "- MAG.FIELD: The Earth's magnetic field is generated within the molten outer core region of the planet and extends outwards to form the magnetosphere."
+    "information": {
+      "surface": "SURFACE: About 71% of the Earth's suface is covered by salt water oceans, and the remaining 30% is taken up by the seven continental landmasses. Earth's outer surface is also divided into several rigid segments, or tectonic plates, that migrate across the surface over periods of millions of years.",
+      "axialTilt": "Today, the Earth is tilted on its axis by 23.4, producing seasonal variations in climate and weather across the surface of the planet during the course of a year.",
+      "magField": "The Earth's magnetic field is generated within the molten outer core region of the planet and extends outwards to form the magnetosphere."
+    }
   },
   "Moon": {
     "introduction": "The Moon is Earth's only natural satellite. Next to the Sun, the Moon exerts the greatest influence on the Earth itself, most notably through its affect on Earth's tides.",
@@ -63,9 +72,14 @@
     "orbitPeriod": "27 DAYS",
     "surfaceGravity": "1.62 M/S^2",
     "surfaceTemperature": "-23 C",
-    "information1": "- MASS: The Moon is the largest natural satellite relative to the size of its primary - having 27% percent the diameter and 60% the density of the Earth. The Moon is larger than Pluto.",
-    "information2": "- ORIGIN: The current prevailing hypothesis for the origin of the Moon is that it formed as a result of Mars-sized body colliding with the newly-formed proto-Earth. The material ejected from this impact accreted to form the Moon 4.53 billion years ago.",
-    "information3": "- OBSERVATION: The Moon is the brightest object in the sky after the Sun, although its surface is actually dark, reflecting only 7 percent of the light falling on it."
+    "information1": "MASS: The Moon is the largest natural satellite relative to the size of its primary having 27% percent the diameter and 60% the density of the Earth. The Moon is larger than Pluto.",
+    "information2": "ORIGIN: The current prevailing hypothesis for the origin of the Moon is that it formed as a result of Mars-sized body colliding with the newly-formed proto-Earth. The material ejected from this impact accreted to form the Moon 4.53 billion years ago.",
+    "information3": "OBSERVATION: The Moon is the brightest object in the sky after the Sun, although its surface is actually dark, reflecting only 7 percent of the light falling on it.",
+    "information": {
+      "mass": "The Moon is the largest natural satellite relative to the size of its primary having 27% percent the diameter and 60% the density of the Earth. The Moon is larger than Pluto.",
+      "origin": "The current prevailing hypothesis for the origin of the Moon is that it formed as a result of Mars-sized body colliding with the newly-formed proto-Earth. The material ejected from this impact accreted to form the Moon 4.53 billion years ago.",
+      "observation": "The Moon is the brightest object in the sky after the Sun, although its surface is actually dark, reflecting only 7 percent of the light falling on it."
+    }
   },
   "Mars": {
     "introduction": "Mars is the fourth planet from the Sun and the second smallest planet in the Solar System. The reddish appearance of Mars' surface is caused by iron oxide (rust).",
@@ -77,13 +91,15 @@
     "orbitPeriod": "1.88 YEAR",
     "surfaceGravity": "3.7 M/S^2",
     "surfaceTemperature": "-63 C",
-    "information1": "- SURFACE: Mars has a dramatic landscape, with towering volcanoes and a great canyon system. Of all the planets in the Solar System, it has the highest mountain, Olympus Mons, and the largest canyon, Valles Marineris.",
-    "information2": "- WATER: There is strong evidence that the Martian atmosphere was once far denser than it is now, and that water once ran freely on its surface. There is also mounting evidence that much of this water remains locked away underground.",
-    "information3": "- MOONS: Mars has two small natural satellites, Phobos and Deimos, that orbit very close to the planet. These moons may be captured asteroids.",
-    "information4": "- OBSERVATION: Mars can easily be seen from Earth with the naked eye, as can its reddish coloring. Its apparent magnitude is surpassed by the Sun, the Moon, Venus and Jupiter - but it can briefly math Jupiter's brightness at certain points in its orbit."
+    "information": {
+      "surface": "Mars has a dramatic landscape, with towering volcanoes and a great canyon system. Of all the planets in the Solar System, it has the highest mountain, Olympus Mons, and the largest canyon, Valles Marineris.",
+      "water": "There is strong evidence that the Martian atmosphere was once far denser than it is now, and that water once ran freely on its surface. There is also mounting evidence that much of this water remains locked away underground.",
+      "moons": "Mars has two small natural satellites, Phobos and Deimos, that orbit very close to the planet. These moons may be captured asteroids.",
+      "observation": "Mars can easily be seen from Earth with the naked eye, as can its reddish coloring. Its apparent magnitude is surpassed by the Sun, the Moon, Venus and Jupiter but it can briefly math Jupiter's brightness at certain points in its orbit."
+    }
   },
   "Jupiter": {
-    "introduction": "Jupiter is the largest planet of the Solar System, with a mass 2.5 greater than all of the rest of the planets combined - but still only one-thousandth that of the Sun.",
+    "introduction": "Jupiter is the largest planet of the Solar System, with a mass 2.5 greater than all of the rest of the planets combined but still only one-thousandth that of the Sun.",
     "encyclopedia": "0",
     "equatorialDiameter": "142984 KM",
     "mass": "1.9 x 10^27 KG",
@@ -92,10 +108,12 @@
     "orbitPeriod": "11.9 YEARS",
     "surfaceGravity": "25 M/S^2",
     "surfaceTemperature": "-120 C",
-    "information1": "- STAR-LIKE: Jupiter is the planet most like the Sun in terms of its composition. Although Jupiter would still need to be about 75 times as massive to fuse hydrogen and become a star, it would only need to be 13 times as massive to burn deuterium and become a brown dwarf.",
-    "information2": "- ATMOSPHERE: Jupiter spins on its axis faster than any other planet. Because of this rotation, Jupiter's atmosphere is subject to high winds, which cause the atmosphere to form distinct bands of colour, like swirling vortices and gigantic anticyclonic storms.",
-    "information3": "- MOONS: Jupiter governs the largest number of moons of any planet, with the current official total being 79.",
-    "information4": "- OBSERVATION: Jupiter is the fourth brightest object in our skies after the Sun, Moon and Venus. Because the orbit of Jupiter is outside the Earth's, the planet always appears nearly fully illuminated when viewed through Earth-based telescopes."
+    "information": {
+      "starLike": "Jupiter is the planet most like the Sun in terms of its composition. Although Jupiter would still need to be about 75 times as massive to fuse hydrogen and become a star, it would only need to be 13 times as massive to burn deuterium and become a brown dwarf.",
+      "atmosphere": "Jupiter spins on its axis faster than any other planet. Because of this rotation, Jupiter's atmosphere is subject to high winds, which cause the atmosphere to form distinct bands of colour, like swirling vortices and gigantic anticyclonic storms.",
+      "moons": "Jupiter governs the largest number of moons of any planet, with the current official total being 79.",
+      "observation": "Jupiter is the fourth brightest object in our skies after the Sun, Moon and Venus. Because the orbit of Jupiter is outside the Earth's, the planet always appears nearly fully illuminated when viewed through Earth-based telescopes."
+    }
   },
   "Saturn": {
     "introduction": "Saturn is the sixth planet from the Sun and the second largest planet in the Solar System. Until the invention of modern telescope, Saturn was regarded as the outermost of the known planets.",
@@ -107,10 +125,12 @@
     "orbitPeriod": "29 YEARS",
     "surfaceGravity": "10.4 M/S^2",
     "surfaceTemperature": "-125 C",
-    "information1": "- MASS: Although the second largest, Saturn is the least dense of all the planets in the Solar System, with only one-eighth the density of Earth (but nine times its diameter). It is also the only planet that is less dense than water.",
-    "information2": "- RING: While the other gas giants also have rings systems, Saturn's is larger and more visible than any other in the Solar System. The rings are composed of water ice crystals and a smaller amount of rock, ranging in sise from specks of dust to a few particles as large as mountains.",
-    "information3": "- MOONS: Saturn has at least 150 moons and moonlets. The precise figure is uncertain as it is difficult to draw a distinction between a large ring particle and a tiny moon. Some of Saturn's moons act as shepherd moons to confine rings and prevent them from spreading out.",
-    "information4": "- OBSERVATION: Saturn appears to the naked eye in the night sky as a bright, yellowish point of light. Magnifying at least 30x resolves Saturn's rings."
+    "information": {
+      "mass": "Although the second largest, Saturn is the least dense of all the planets in the Solar System, with only one-eighth the density of Earth (but nine times its diameter). It is also the only planet that is less dense than water.",
+      "ring": "While the other gas giants also have rings systems, Saturn's is larger and more visible than any other in the Solar System. The rings are composed of water ice crystals and a smaller amount of rock, ranging in sise from specks of dust to a few particles as large as mountains.",
+      "moons": "Saturn has at least 150 moons and moonlets. The precise figure is uncertain as it is difficult to draw a distinction between a large ring particle and a tiny moon. Some of Saturn's moons act as shepherd moons to confine rings and prevent them from spreading out.",
+      "observation": "Saturn appears to the naked eye in the night sky as a bright, yellowish point of light. Magnifying at least 30x resolves Saturn's rings."
+    }
   },
   "Uranus": {
     "introduction": "Uranus is the third largest of the Solar System's gas giants. It is the coldest planet in the Solar System.",
@@ -122,9 +142,11 @@
     "orbitPeriod": "84 YEARS",
     "surfaceGravity": "8.7 M/S^2",
     "surfaceTemperature": "-210 C",
-    "information1": "- DISCOVERY: Uranus was the first to be discovered by the use of the modern telescope, with its discovery credited to the English astronomer William Herschel in 1781.",
-    "information2": "- AXIAL TILT: Uranus has an axial tilt of 97.77, meaning it effectively rolls around the Sun on its side compared to the other planets in the Solar System.",
-    "information3": "- OBSERVATION: While in Opposition (from the Sun, relative to the Earth), Uranus becomes visible to the naked-eye. It would appear as a faint star under dark sky conditions."
+    "information": {
+      "discovery": "Uranus was the first to be discovered by the use of the modern telescope, with its discovery credited to the English astronomer William Herschel in 1781.",
+      "axialTilt": "Uranus has an axial tilt of 97.77, meaning it effectively rolls around the Sun on its side compared to the other planets in the Solar System.",
+      "observation": "While in Opposition (from the Sun, relative to the Earth), Uranus becomes visible to the naked-eye. It would appear as a faint star under dark sky conditions."
+    }
   },
   "Neptune": {
     "introduction": "Neptune, is the eight and officially farthest planet from the Sun. It is the smallest but also the most dense of gas giants. Neptune has a surface gravity that is only surpassed by Jupiter.",
@@ -136,6 +158,8 @@
     "orbitPeriod": "165 YEARS",
     "surfaceGravity": "11.2 M/S^2",
     "surfaceTemperature": "-200 C",
-    "information1": "- DISCOVERY: Neptune was the first planet to be discovered purely on the basis of mathematical prediction rather than by direct observation. Since it's discovery in 1846, Neptune has completed only one orbit of the Sun."
+    "information": {
+      "discovery": "Neptune was the first planet to be discovered purely on the basis of mathematical prediction rather than by direct observation. Since it's discovery in 1846, Neptune has completed only one orbit of the Sun."
+    }
   }
 }

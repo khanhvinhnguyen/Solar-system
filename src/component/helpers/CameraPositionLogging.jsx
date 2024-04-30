@@ -1,7 +1,7 @@
 import { useThree } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
 
-function CameraPositionLogging({ event }) {
+const CameraPositionLogging = ({ event }) => {
   const { camera } = useThree();
   const cameraRef = useRef();
 
@@ -22,6 +22,6 @@ function CameraPositionLogging({ event }) {
   }, []);
 
   return null;
-}
+};
 
 export default CameraPositionLogging;

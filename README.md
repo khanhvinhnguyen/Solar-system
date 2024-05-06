@@ -16,7 +16,7 @@
 ## INTRODUCTION TO THE COURSE
 * **Subject name:** Computer Graphics
 * **Subject code:** CS105
-* **Academic year:** Term 1 (2023 - 2024)
+* **Academic year:** Term 2 (2023 - 2024)
 * **Lecturer**: MSc. Cap Pham Dinh Thang
 
 

@@ -17,7 +17,7 @@
 * **Subject name:** Computer Graphics
 * **Subject code:** CS105
 * **Academic year:** Term 1 (2023 - 2024)
-* **Lecturer**: MSc. Cable Pham Dinh Thang
+* **Lecturer**: MSc. Cap Pham Dinh Thang
 
 
 

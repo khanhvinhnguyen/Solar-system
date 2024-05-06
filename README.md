@@ -7,7 +7,7 @@
 
 <h1 align="center"><b>Computer Graphics</b></h>
 
-## THÀNH VIÊN NHÓM
+## GROUP MEMBERS
 | Student ID    | Name                   | Github                                                  | Email                   |
 |:-------------:| ----------------------:|--------------------------------------------------------:|-------------------------:
 | 17521263      | Nguyễn Khánh Vinh      |[khanhvinhnguyen](https://github.com/khanhvinhnguyen)    |vinhnk.work@gmail.com    |

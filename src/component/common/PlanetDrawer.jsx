@@ -17,7 +17,7 @@ const PlanetDrawer = () => {
   };
 
   const planetDataLang = language == "en" ? planetData_EN : planetData_VN;
-  const planetInfo = planetDataLang[selectedPlanet];
+  const planetInfo = selectedPlanet ? planetDataLang[selectedPlanet] : null;
 
   const handleCloseDrawer = () => {
     selectPlanet(null);
@@ -81,9 +81,7 @@ const PlanetDrawer = () => {
         <ul>
           {Object.keys(planetInfo.information).map((key) => (
             <li key={key}>
-              <strong>
-                <i>{intl.get(`subtitle.${key}`)}: </i>
-              </strong>
+              <span>{intl.get(`subtitle.${key}`)}:</span>{" "}
               {planetInfo.information[key]}
             </li>
           ))}

@@ -9,7 +9,7 @@ import planetData_EN from "../../assets/planetData_EN.json";
 import planetData_VN from "../../assets/planetData_VN.json";
 
 const PlanetDrawer = () => {
-  const { language } = useContext(SettingContext);
+  const { language, handleSpeedPlanet } = useContext(SettingContext);
   const { selectedPlanet, selectPlanet } = usePlanet();
 
   const handleStructure = (e) => {
@@ -21,6 +21,7 @@ const PlanetDrawer = () => {
 
   const handleCloseDrawer = () => {
     selectPlanet(null);
+    handleSpeedPlanet(1);
   };
 
   return planetInfo ? (

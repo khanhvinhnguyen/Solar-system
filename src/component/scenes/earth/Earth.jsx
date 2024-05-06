@@ -5,7 +5,6 @@ import * as THREE from "three";
 
 import { SettingContext } from "../../context/SettingContext";
 import Moon from "./Moon";
-
 import earthDay from "/assets/earth_day.jpg";
 import earthNormal from "/assets/earth_normal.jpg";
 import earthSpecular from "/assets/earth_specular.jpg";
@@ -14,6 +13,7 @@ import earthNight from "/assets/earth_nightmap.jpeg";
 
 const Earth = ({ displacementScale }) => {
   const { orbitLineState, planetSpeed } = useContext(SettingContext);
+  const [isHovered, setHovered] = useState(false);
 
   const earthRef = useRef();
   const previousElapsedTime = useRef(0);
@@ -55,7 +55,13 @@ const Earth = ({ displacementScale }) => {
 
   return (
     <group ref={earthRef}>
-      <mesh name="Earth" castShadow receiveShadow>
+      <mesh
+        name="Earth"
+        castShadow
+        receiveShadow
+        onPointerOver={() => setHovered(true)}
+        onPointerOut={() => setHovered(false)}
+      >
         {/* Radius , X-axis , Y-axis */}
         <sphereGeometry args={[1, 50, 50]} />
         <meshPhongMaterial
@@ -67,6 +73,7 @@ const Earth = ({ displacementScale }) => {
           displacementScale={displacementScale}
           emissiveMap={earthEmissiveMap}
           emissive={0xffffff}
+          emissiveIntensity={isHovered ? 20 : 1.5}
         />
       </mesh>
       {/* <ISS /> */}

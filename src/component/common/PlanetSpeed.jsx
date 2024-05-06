@@ -10,22 +10,17 @@ import { SettingContext } from "../context/SettingContext";
 
 const PlanetSpeed = () => {
   const { planetSpeed, handleSpeedPlanet } = useContext(SettingContext);
-  const [speedValue, setSpeedValue] = useState(planetSpeed);
-
-  useEffect(() => {
-    handleSpeedPlanet(speedValue);
-  }, [speedValue]);
 
   const handlePlayPause = () => {
-    speedValue == 0 ? setSpeedValue(1) : setSpeedValue(0);
+    planetSpeed == 0 ? handleSpeedPlanet(1) : handleSpeedPlanet(0);
   };
 
   const handleSpeedForward = () => {
-    setSpeedValue(speedValue + 1);
+    handleSpeedPlanet(planetSpeed + 1);
   };
 
   const handleSpeedBackward = () => {
-    setSpeedValue(speedValue - 1);
+    handleSpeedPlanet(planetSpeed - 1);
   };
 
   return (

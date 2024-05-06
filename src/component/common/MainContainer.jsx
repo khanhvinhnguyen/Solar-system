@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useRef, useState, useEffect } from "react";
 import * as THREE from "three";
 import { useHelper } from "@react-three/drei";
 
@@ -24,6 +24,11 @@ const MainContainer = () => {
   useHelper(directionalLightRefTwo, THREE.DirectionalLightHelper, 1, "hotpink");
 
   const { selectPlanet } = usePlanet();
+  const [hoveredObject, setHoveredObject] = useState(false);
+
+  useEffect(() => {
+    document.body.style.cursor = hoveredObject ? "pointer" : "auto";
+  }, [hoveredObject]);
 
   const handlePlanetClick = (planetName) => {
     selectPlanet(planetName);
@@ -47,7 +52,11 @@ const MainContainer = () => {
       /> */}
       <ambientLight intensity={0.1} />
 
-      <group onClick={(e) => handlePlanetClick(e.object.name)}>
+      <group
+        onClick={(e) => handlePlanetClick(e.object.name)}
+        onPointerOver={() => setHoveredObject(true)}
+        onPointerOut={() => setHoveredObject(false)}
+      >
         <Sun />
         <Mercury />
         <Venus />

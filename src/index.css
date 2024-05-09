@@ -112,6 +112,7 @@ body,
   transform: translate(-50%, 0);
   gap: 1rem;
   margin-left: 30px;
+  width: 50%;
 
   Button {
     height: auto;
@@ -126,9 +127,18 @@ body,
     }
   }
 
+  .ant-slider {
+    width: 100%;
+    align-self: center;
+  }
+  .ant-slider-step {
+    background: #bfbfbf;
+  }
+
   h1 {
     color: #fff;
     margin-left: 15px;
+    width: inherit;
   }
 }
 

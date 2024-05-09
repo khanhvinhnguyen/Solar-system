@@ -14,7 +14,7 @@ const Saturn = ({ displacementScale }) => {
   const saturnRef = useRef();
   const previousElapsedTime = useRef(0);
   const [currentSaturnPosition, setCurrentSaturnPosition] = useState(
-    new THREE.Vector3(22, 0, 22)
+    new THREE.Vector3(0, 0, 0)
   );
   const [saturnTexture, saturnRingTexture] = useTexture([
     saturnMap,

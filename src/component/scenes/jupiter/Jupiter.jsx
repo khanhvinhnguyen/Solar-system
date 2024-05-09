@@ -13,7 +13,7 @@ const Jupiter = ({ displacementScale }) => {
   const jupiterRef = useRef();
   const previousElapsedTime = useRef(0);
   const [currentJupiterPosition, setCurrentJupiterPosition] = useState(
-    new THREE.Vector3(8, 0, 7)
+    new THREE.Vector3(0, 0, 0)
   );
   const [jupiterTexture] = useTexture([jupiterMap]);
   useFrame(({ clock }) => {

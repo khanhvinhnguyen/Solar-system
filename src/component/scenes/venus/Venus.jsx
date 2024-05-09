@@ -13,7 +13,7 @@ const Venus = ({ displacementScale }) => {
   const venusRef = useRef();
   const previousElapsedTime = useRef(0);
   const [currentVenusPosition, setCurrentVenusPosition] = useState(
-    new THREE.Vector3(6, 0, 1)
+    new THREE.Vector3(0, 0, 0)
   );
 
   const [venusTexture] = useTexture([venusMap]);

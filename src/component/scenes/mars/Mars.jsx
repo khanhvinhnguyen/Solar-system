@@ -13,7 +13,7 @@ const Mars = ({ displacementScale }) => {
   const marsRef = useRef();
   const previousElapsedTime = useRef(0);
   const [currentMercuryPosition, setCurrentMercuryPosition] = useState(
-    new THREE.Vector3(28, 0, -6)
+    new THREE.Vector3(0, 0, 0)
   );
 
   const [marsTexture] = useTexture([marsMap]);

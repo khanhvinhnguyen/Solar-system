@@ -13,7 +13,7 @@ const Neptune = ({ displacementScale }) => {
   const neptuneRef = useRef();
   const previousElapsedTime = useRef(0);
   const [currentNeptunePosition, setCurrentNeptunePosition] = useState(
-    new THREE.Vector3(14, 0, 10)
+    new THREE.Vector3(0, 0, 0)
   );
 
   const [neptuneTexture] = useTexture([neptuneMap]);

@@ -23,7 +23,7 @@ const Moon = () => {
       castShadow
       receiveShadow
       ref={moonRef}
-      position={[xAxis, 0, 0]}
+      position={[0, 0, 0]}
     >
       {/* Radius , X-axis , Y-axis */}
       <sphereGeometry args={[0.27, 32, 32]} />

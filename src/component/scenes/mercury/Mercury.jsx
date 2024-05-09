@@ -12,7 +12,7 @@ const Mercury = ({ displacementScale }) => {
   const mercuryRef = useRef();
   const previousElapsedTime = useRef(0);
   const [currentMercuryPosition, setCurrentMercuryPosition] = useState(
-    new THREE.Vector3(-4, 0, 0)
+    new THREE.Vector3(0, 0, 0)
   );
 
   const [mercuryTexture] = useTexture([mercuryMap]);

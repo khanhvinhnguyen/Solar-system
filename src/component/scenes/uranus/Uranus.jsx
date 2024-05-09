@@ -13,7 +13,7 @@ const Uranus = ({ displacementScale }) => {
   const uranusRef = useRef();
   const previousElapsedTime = useRef(0);
   const [currentUranusPosition, setCurrentUranusPosition] = useState(
-    new THREE.Vector3(14, 0, 0)
+    new THREE.Vector3(0, 0, 0)
   );
 
   const [uranusTexture] = useTexture([uranusMap]);

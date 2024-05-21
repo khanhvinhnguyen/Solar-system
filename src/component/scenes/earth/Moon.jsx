@@ -1,21 +1,47 @@
+import * as THREE from "three";
 import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useRef } from "react";
+import { useRef, useContext, useState } from "react";
+
+import { SettingContext } from "../../context/SettingContext";
 
 import moonMap from "/assets/moon_map.jpg";
 
 const Moon = () => {
+  const { planetSpeed } = useContext(SettingContext);
   const moonRef = useRef();
+  const previousElapsedTime = useRef(0);
+  const [currentMoonPosition, setCurrentMoonPosition] = useState(
+    new THREE.Vector3(0, 0, 0)
+  );
 
   const [moonTexture] = useTexture([moonMap]);
-  const xAxis = 2;
+
   useFrame(({ clock }) => {
-    moonRef.current.position.x =
-      Math.sin(clock.getElapsedTime() * 0.03) * xAxis;
-    moonRef.current.position.z =
-      Math.cos(clock.getElapsedTime() * 0.03) * xAxis;
-    moonRef.current.rotation.y += 0.002;
+    const elapsedTime = clock.getElapsedTime();
+
+    if (planetSpeed !== 0) {
+      const angle = elapsedTime * 0.03 * planetSpeed;
+      const distance = 2;
+      const x = Math.sin(angle) * distance;
+      const z = Math.cos(angle) * distance;
+      moonRef.current.position.set(x, 0, z);
+      moonRef.current.rotation.y += 0.002 * planetSpeed;
+      setCurrentMoonPosition(new THREE.Vector3(x, 0, z));
+    } else {
+      moonRef.current.position.copy(currentMoonPosition);
+    }
+
+    previousElapsedTime.current = elapsedTime;
   });
+
+  // useFrame(({ clock }) => {
+  //   moonRef.current.position.x =
+  //     Math.sin(clock.getElapsedTime() * 0.03) * xAxis * planetSpeed;
+  //   moonRef.current.position.z =
+  //     Math.cos(clock.getElapsedTime() * 0.03) * xAxis * planetSpeed;
+  //   moonRef.current.rotation.y += 0.002 * planetSpeed;
+  // });
 
   return (
     <mesh

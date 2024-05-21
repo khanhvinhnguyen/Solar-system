@@ -4,12 +4,14 @@ import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
 import { SettingContext } from "../../context/SettingContext";
+import { usePlanet } from "../../context/PlanetSelectContext";
 
 import sunMap from "/assets/sun_map.jpg";
 
 const Sun = () => {
   const sunRef = useRef();
   const { orbitLineState, planetSpeed } = useContext(SettingContext);
+  const { selectedPlanet } = usePlanet();
 
   const [sunTexture] = useTexture([sunMap]);
 
@@ -57,7 +59,7 @@ const Sun = () => {
         <pointLight castShadow />
       </mesh>
 
-      {orbitLineState == true && planetsOrbitLine}
+      {orbitLineState == true && selectedPlanet != "Sun" && planetsOrbitLine}
     </group>
   );
 };

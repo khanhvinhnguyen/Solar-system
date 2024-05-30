@@ -3,7 +3,7 @@ import React from "react";
 import { useProgress } from "@react-three/drei";
 import { Spin } from "antd";
 
-const LoadingOverlay: React.FC = () => {
+const LoadingOverlay = () => {
   const { progress } = useProgress();
 
   return (

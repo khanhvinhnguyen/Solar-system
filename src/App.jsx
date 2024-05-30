@@ -1,23 +1,24 @@
-import { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, useProgress } from "@react-three/drei";
 import { Button, Divider, Drawer } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 import { Perf } from "r3f-perf";
 import intl from "react-intl-universal";
 
 import { SettingProvider } from "./component/context/SettingContext";
-
 import { PlanetProvider } from "./component/context/PlanetSelectContext";
 import MainContainer from "./component/common/MainContainer";
 import LanguageSelector from "./component/common/LangSelect";
 import OrbitLineSelector from "./component/common/OrbitLineCheck";
-
 import PlanetDrawer from "./component/common/PlanetDrawer";
 import PlanetSpeed from "./component/common/PlanetSpeed";
+import LoadingOverlay from "./component/common/LoadingOverlay"; // Import LoadingOverlay component
 
 function App() {
   const [settingDrawer, setSettingDrawer] = useState(false);
+  const { progress } = useProgress();
+  const isLoading = progress < 100;
 
   const handleCloseSettings = (openDrawer) => {
     setSettingDrawer(openDrawer);
@@ -46,7 +47,7 @@ function App() {
       </Drawer>
 
       {/* Planet speed */}
-      {<PlanetSpeed />}
+      {!isLoading && <PlanetSpeed />}
 
       {/* Canvas */}
       <PlanetProvider>
@@ -55,10 +56,10 @@ function App() {
           camera={{ fov: 55, near: 0.1, far: 1000, position: [16, 8.5, 19.5] }}
         >
           <color attach="background" args={["#15151e"]} />
-          {/* <Perf /> */}
           <OrbitControls />
           <MainContainer />
         </Canvas>
+        {isLoading && <LoadingOverlay />}
         <PlanetDrawer />
       </PlanetProvider>
     </SettingProvider>

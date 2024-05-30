@@ -10,11 +10,8 @@ import planetData_VN from "../../assets/planetData_VN.json";
 
 const PlanetDrawer = () => {
   const { language, handleSpeedPlanet } = useContext(SettingContext);
-  const { selectedPlanet, selectPlanet } = usePlanet();
-
-  const handleStructure = (e) => {
-    console.log(`checked = ${e.target.checked}`);
-  };
+  const { selectedPlanet, selectPlanet, showStructure, structurePlanet } =
+    usePlanet();
 
   const planetDataLang = language == "en" ? planetData_EN : planetData_VN;
   const planetInfo = selectedPlanet ? planetDataLang[selectedPlanet] : null;
@@ -24,9 +21,12 @@ const PlanetDrawer = () => {
     handleSpeedPlanet(1);
   };
 
+  const handleStructureChange = (e) => {
+    structurePlanet(e.target.checked);
+  };
+
   return planetInfo ? (
     <div className="planetDrawer">
-      {/* Title */}
       <div className="planetDrawer_title" style={{ display: "flex" }}>
         <h1>{intl.get(`planetName.${selectedPlanet}`)}</h1>
         <Button onClick={handleCloseDrawer}>
@@ -36,15 +36,12 @@ const PlanetDrawer = () => {
 
       <Divider style={{ backgroundColor: "gray" }} />
 
-      {/* Info  */}
       <ul>
-        {/* Introduction */}
         <li className="planetDrawer_subtitle">
           {intl.get(`title.introduction`)}
         </li>
         <p>{planetInfo.introduction}</p>
 
-        {/* Encyclopedia */}
         <li className="planetDrawer_subtitle">
           {intl.get(`title.encyclopedia`)}
         </li>
@@ -74,7 +71,6 @@ const PlanetDrawer = () => {
           </li>
         </ul>
 
-        {/* Another Information */}
         <li className="planetDrawer_subtitle">
           {intl.get(`title.anotherInformation`)}
         </li>

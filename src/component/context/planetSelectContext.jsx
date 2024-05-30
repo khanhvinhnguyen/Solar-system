@@ -8,6 +8,7 @@ export const PlanetProvider = ({ children }) => {
 
   const [selectedPlanet, setSelectedPlanet] = useState(null);
   const [lookAt, setLookAt] = useState([0, 0, 0]);
+  const [showStructure, setShowStructure] = useState(false);
 
   const selectPlanet = (planet) => {
     setSelectedPlanet(planet);
@@ -20,8 +21,20 @@ export const PlanetProvider = ({ children }) => {
     }
   };
 
+  const structurePlanet = () => {
+    setShowStructure((prev) => !prev);
+  };
+
   return (
-    <PlanetContext.Provider value={{ selectedPlanet, selectPlanet, lookAt }}>
+    <PlanetContext.Provider
+      value={{
+        selectedPlanet,
+        selectPlanet,
+        lookAt,
+        showStructure,
+        structurePlanet,
+      }}
+    >
       {children}
     </PlanetContext.Provider>
   );

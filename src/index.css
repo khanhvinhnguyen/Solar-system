@@ -1,3 +1,4 @@
+/* src/index.css or similar */
 * {
   padding: 0;
   margin: 0;
@@ -144,4 +145,23 @@ body,
 
 .ant-btn:disabled > * {
   color: red;
+}
+
+/* Loading Overlay Styles */
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  z-index: 1000;
+
+  p {
+    margin-top: 1.5rem;
+  }
 }

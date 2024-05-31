@@ -20,7 +20,6 @@ import PlanetSpeed from "./component/common/PlanetSpeed";
 import LoadingOverlay from "./component/common/LoadingOverlay"; // Import LoadingOverlay component
 
 function App() {
-  const { selectedPlanet } = usePlanet();
   const [settingDrawer, setSettingDrawer] = useState(false);
   const { progress } = useProgress();
   const isLoading = progress < 100;

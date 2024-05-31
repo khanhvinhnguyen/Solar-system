@@ -22,8 +22,8 @@ const Sun = () => {
   const planetsDistanceToSun = {
     Mercury: 3.51,
     Venus: 6.507,
-    Earth: 9,
-    Mars: 13.716,
+    Earth: 10.5,
+    Mars: 16,
     Jupiter: 46.827,
     Saturn: 85.851,
     Uranus: 172.62,

@@ -23,7 +23,7 @@ const Mars = ({ displacementScale }) => {
 
     if (planetSpeed !== 0) {
       const angle = elapsedTime * 0.2408 * planetSpeed;
-      const distance = 13.716; // 12
+      const distance = 16; // 12
       const x = Math.sin(angle) * distance;
       const z = Math.cos(angle) * distance;
       marsRef.current.position.set(x, 0, z);

@@ -28,7 +28,7 @@ const FocusPlanet = ({ planetName }) => {
 
   return (
     <>
-      <pointLight position={[-100, 0, 0]} intensity={1} color="#fff" />
+      <pointLight position={[-100, 0, 100]} intensity={1} color="#fff" />
       <PlanetComponent
         key={planetName}
         onClick={() => handlePlanetClick(planetName)}

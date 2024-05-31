@@ -44,7 +44,7 @@ const Earth = ({ displacementScale }) => {
 
     if (planetSpeed !== 0) {
       const angle = elapsedTime * 0.2978 * planetSpeed;
-      const distance = 9; // 9
+      const distance = 10.5; // 9
       const x = Math.sin(angle) * distance;
       const z = Math.cos(angle) * distance;
       earthRef.current.position.set(x, 0, z);

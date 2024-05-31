@@ -102,6 +102,23 @@ body,
       color: #fff;
     }
   }
+
+  .Drawer__Btn {
+    text-align: center;
+
+    Button {
+      width: 95%;
+      height: auto;
+      padding: 1rem;
+
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: large;
+      }
+    }
+  }
 }
 
 .control_speed {

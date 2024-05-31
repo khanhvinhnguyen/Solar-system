@@ -21,8 +21,8 @@ const PlanetDrawer = () => {
     handleSpeedPlanet(1);
   };
 
-  const handleStructureChange = (e) => {
-    structurePlanet(e.target.checked);
+  const handleStructureChange = () => {
+    structurePlanet(!showStructure);
   };
 
   return planetInfo ? (
@@ -86,10 +86,13 @@ const PlanetDrawer = () => {
 
       <Divider style={{ backgroundColor: "gray" }} />
 
-      {/* Option structure*/}
-      {/* <Checkbox onChange={handleStructure}>
-        {intl.get(`general.structure`)}
-      </Checkbox> */}
+      {selectedPlanet == "Earth" && (
+        <div className="Drawer__Btn">
+          <Button onClick={handleStructureChange}>
+            {intl.get(`general.structure`)}
+          </Button>
+        </div>
+      )}
     </div>
   ) : null;
 };

@@ -1,28 +1,27 @@
 import React, { createContext, useContext, useState } from "react";
 import { SettingContext } from "./SettingContext";
 
-const PlanetContext = createContext(null);
+export const PlanetContext = createContext({
+  showStructure: false,
+  setShowStructure: () => {},
+});
 
 export const PlanetProvider = ({ children }) => {
   const { handleSpeedPlanet } = useContext(SettingContext);
 
   const [selectedPlanet, setSelectedPlanet] = useState(null);
-  const [lookAt, setLookAt] = useState([0, 0, 0]);
   const [showStructure, setShowStructure] = useState(false);
 
   const selectPlanet = (planet) => {
     setSelectedPlanet(planet);
 
     if (planet !== null) {
-      setLookAt(planet.position);
       handleSpeedPlanet(0);
-    } else {
-      setLookAt([0, 0, 0]);
     }
   };
 
-  const structurePlanet = () => {
-    setShowStructure((prev) => !prev);
+  const structurePlanet = (data) => {
+    setShowStructure(data);
   };
 
   return (
@@ -30,7 +29,6 @@ export const PlanetProvider = ({ children }) => {
       value={{
         selectedPlanet,
         selectPlanet,
-        lookAt,
         showStructure,
         structurePlanet,
       }}

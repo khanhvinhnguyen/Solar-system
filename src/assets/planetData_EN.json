@@ -57,7 +57,7 @@
     "surfaceGravity": "9.8 M/S^2",
     "surfaceTemperature": "15 C",
     "information": {
-      "surface": "SURFACE: About 71% of the Earth's suface is covered by salt water oceans, and the remaining 30% is taken up by the seven continental landmasses. Earth's outer surface is also divided into several rigid segments, or tectonic plates, that migrate across the surface over periods of millions of years.",
+      "surface": "About 71% of the Earth's suface is covered by salt water oceans, and the remaining 30% is taken up by the seven continental landmasses. Earth's outer surface is also divided into several rigid segments, or tectonic plates, that migrate across the surface over periods of millions of years.",
       "axialTilt": "Today, the Earth is tilted on its axis by 23.4, producing seasonal variations in climate and weather across the surface of the planet during the course of a year.",
       "magField": "The Earth's magnetic field is generated within the molten outer core region of the planet and extends outwards to form the magnetosphere."
     }
@@ -72,9 +72,6 @@
     "orbitPeriod": "27 DAYS",
     "surfaceGravity": "1.62 M/S^2",
     "surfaceTemperature": "-23 C",
-    "information1": "MASS: The Moon is the largest natural satellite relative to the size of its primary having 27% percent the diameter and 60% the density of the Earth. The Moon is larger than Pluto.",
-    "information2": "ORIGIN: The current prevailing hypothesis for the origin of the Moon is that it formed as a result of Mars-sized body colliding with the newly-formed proto-Earth. The material ejected from this impact accreted to form the Moon 4.53 billion years ago.",
-    "information3": "OBSERVATION: The Moon is the brightest object in the sky after the Sun, although its surface is actually dark, reflecting only 7 percent of the light falling on it.",
     "information": {
       "mass": "The Moon is the largest natural satellite relative to the size of its primary having 27% percent the diameter and 60% the density of the Earth. The Moon is larger than Pluto.",
       "origin": "The current prevailing hypothesis for the origin of the Moon is that it formed as a result of Mars-sized body colliding with the newly-formed proto-Earth. The material ejected from this impact accreted to form the Moon 4.53 billion years ago.",

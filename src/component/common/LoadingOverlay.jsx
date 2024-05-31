@@ -10,7 +10,7 @@ const LoadingOverlay = () => {
     <div className="loading-overlay">
       <div align="center" gap="middle">
         <Spin size="large" />
-        <p>{progress.toFixed(2)}% loaded</p>
+        {/* <p>{progress.toFixed(2)}% loaded</p> */}
       </div>
     </div>
   );

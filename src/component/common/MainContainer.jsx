@@ -10,7 +10,7 @@ import AnimatedStars from "./AnimatedStars";
 import Sun from "../scenes/sun/Sun";
 import Mercury from "../scenes/mercury/Mercury";
 import Venus from "../scenes/venus/Venus";
-import Earth from "../scenes/earth/Earth";
+import Earth from "../scenes/earth/EarthStructure";
 import Moon from "../scenes/earth/Moon";
 import Mars from "../scenes/mars/Mars";
 import Jupiter from "../scenes/jupiter/Jupiter";
@@ -40,14 +40,12 @@ const MainContainer = () => {
 
   const { selectedPlanet, selectPlanet } = usePlanet();
   const [hoveredObject, setHoveredObject] = useState(false);
-  const [planetNameSelect, setPlanetNameSelect] = useState();
 
   useEffect(() => {
     document.body.style.cursor = hoveredObject ? "pointer" : "auto";
   }, [hoveredObject]);
 
   const handlePlanetClick = (planetName) => {
-    setPlanetNameSelect(planetName);
     selectPlanet(planetName);
   };
 
@@ -70,29 +68,23 @@ const MainContainer = () => {
       <ambientLight intensity={0.1} />
 
       {selectedPlanet == null ? (
-        <>
-          {/* Solar system simple */}
-          <group
-            onClick={(e) => handlePlanetClick(e.object.name)}
-            onPointerOver={() => setHoveredObject(true)}
-            onPointerOut={() => setHoveredObject(false)}
-          >
-            <Sun />
-            <Mercury />
-            <Venus />
-            <Earth displacementScale={0.15} />
-            <Mars />
-            <Jupiter />
-            <Saturn />
-            <Uranus />
-            <Neptune />
-          </group>
-        </>
+        <group
+          onClick={(e) => handlePlanetClick(e.object.name)}
+          onPointerOver={() => setHoveredObject(true)}
+          onPointerOut={() => setHoveredObject(false)}
+        >
+          <Sun />
+          <Mercury />
+          <Venus />
+          <Earth displacementScale={0.15} />
+          <Mars />
+          <Jupiter />
+          <Saturn />
+          <Uranus />
+          <Neptune />
+        </group>
       ) : (
-        <>
-          {/* Selected planet */}
-          <FocusPlanet planetName={planetNameSelect} />
-        </>
+        <FocusPlanet planetName={selectedPlanet} />
       )}
     </>
   );

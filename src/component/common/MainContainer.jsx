@@ -42,7 +42,8 @@ const MainContainer = () => {
   const [hoveredObject, setHoveredObject] = useState(false);
 
   useEffect(() => {
-    document.body.style.cursor = hoveredObject ? "pointer" : "auto";
+    document.body.style.cursor =
+      hoveredObject && hoveredObject != "ISS" ? "pointer" : "auto";
   }, [hoveredObject]);
 
   const handlePlanetClick = (planetName) => {

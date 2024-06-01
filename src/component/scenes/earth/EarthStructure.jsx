@@ -13,6 +13,7 @@ import earthNormal from "/assets/earth_normal.jpg";
 import earthSpecular from "/assets/earth_specular.jpg";
 import earthDisplacement from "/assets/earth_displacement.jpg";
 import earthNight from "/assets/earth_nightmap.jpeg";
+import ISS from "./ISS";
 
 const Earth = ({ displacementScale }) => {
   const { orbitLineState, planetSpeed } = useContext(SettingContext);
@@ -219,6 +220,7 @@ const Earth = ({ displacementScale }) => {
   return (
     <group ref={earthRef}>
       {renderLayers()}
+      <ISS />
       {selectedPlanet !== "Earth" && (
         <group>
           <Moon />

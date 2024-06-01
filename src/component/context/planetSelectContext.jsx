@@ -2,6 +2,8 @@ import React, { createContext, useContext, useState } from "react";
 import { SettingContext } from "./SettingContext";
 
 export const PlanetContext = createContext({
+  selectedPlanet: null,
+  selectPlanet: () => {},
   showStructure: false,
   setShowStructure: () => {},
 });

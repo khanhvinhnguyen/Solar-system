@@ -9,6 +9,7 @@ import Jupiter from "../jupiter/Jupiter";
 import Saturn from "../saturn/Saturn";
 import Uranus from "../uranus/Uranus";
 import Neptune from "../neptune/Neptune";
+import ISS from "../earth/ISS";
 
 const planetComponents = {
   Sun,

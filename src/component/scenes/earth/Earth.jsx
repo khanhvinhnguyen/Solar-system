@@ -7,6 +7,8 @@ import { SettingContext } from "../../context/SettingContext";
 import { usePlanet } from "../../context/PlanetSelectContext";
 
 import Moon from "./Moon";
+import ISS from "./ISS";
+
 import earthDay from "/assets/earth_day.jpg";
 import earthNormal from "/assets/earth_normal.jpg";
 import earthSpecular from "/assets/earth_specular.jpg";
@@ -80,7 +82,7 @@ const Earth = ({ displacementScale }) => {
           emissiveIntensity={isHovered ? 20 : 1.5}
         />
       </mesh>
-      {/* <ISS /> */}
+      <ISS />
 
       {selectedPlanet != "Earth" && (
         <group>

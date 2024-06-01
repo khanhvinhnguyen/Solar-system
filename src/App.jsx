@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useProgress } from "@react-three/drei";
 import { Button, Divider, Drawer } from "antd";
@@ -9,8 +9,8 @@ import _ from "lodash";
 
 import { SettingProvider } from "./component/context/SettingContext";
 import {
+  PlanetContext,
   PlanetProvider,
-  usePlanet,
 } from "./component/context/PlanetSelectContext";
 import MainContainer from "./component/common/MainContainer";
 import LanguageSelector from "./component/common/LangSelect";
@@ -20,6 +20,8 @@ import PlanetSpeed from "./component/common/PlanetSpeed";
 import LoadingOverlay from "./component/common/LoadingOverlay"; // Import LoadingOverlay component
 
 function App() {
+  const { selectedPlanet } = useContext(PlanetContext);
+
   const [settingDrawer, setSettingDrawer] = useState(false);
   const { progress } = useProgress();
   const isLoading = progress < 100;
@@ -63,6 +65,7 @@ function App() {
         {isLoading && <LoadingOverlay />}
         <PlanetDrawer />
 
+        {/* || selectedPlanet === null */}
         {!isLoading && <PlanetSpeed />}
       </PlanetProvider>
     </SettingProvider>

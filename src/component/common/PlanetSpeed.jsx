@@ -25,6 +25,7 @@ const PlanetSpeed = () => {
     const updatedSpeed = planetSpeed !== 0 ? 0 : 1;
     setValue(updatedSpeed);
     setNewSpeed(updatedSpeed);
+    handleSpeedPlanet(updatedSpeed);
   };
 
   return (

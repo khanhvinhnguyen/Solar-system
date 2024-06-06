@@ -8,7 +8,7 @@ import { SettingContext } from "@/component/context/settingContext";
 import {
   PlanetContext,
   usePlanet,
-} from "@/component/context/PlanetSelectContext";
+} from "@/component/context/planetSelectContext";
 
 import Moon from "@/component/scenes/earth/Moon";
 import ISS from "@/component/scenes/earth/ISS";

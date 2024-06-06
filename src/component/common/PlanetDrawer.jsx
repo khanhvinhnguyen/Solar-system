@@ -4,7 +4,7 @@ import { CloseOutlined } from "@ant-design/icons";
 import intl from "react-intl-universal";
 
 import { SettingContext } from "@/component/context/settingContext";
-import { usePlanet } from "@/component/context/PlanetSelectContext";
+import { usePlanet } from "@/component/context/planetSelectContext";
 import planetData_EN from "@/assets/planetData_EN.json";
 import planetData_VN from "@/assets/planetData_VN.json";
 

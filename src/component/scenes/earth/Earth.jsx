@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
 import { SettingContext } from "@/component/context/settingContext";
-import { usePlanet } from "@/component/context/PlanetSelectContext";
+import { usePlanet } from "@/component/context/planetSelectContext";
 
 import Moon from "@/component/scenes/earth/Moon";
 import ISS from "@/component/scenes/earth/ISS";

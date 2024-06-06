@@ -6,14 +6,14 @@ import * as THREE from "three";
 import { SettingContext } from "@/component/context/settingContext";
 import { usePlanet } from "@/component/context/PlanetSelectContext";
 
-import Moon from "./Moon";
-import ISS from "./ISS";
+import Moon from "@/component/scenes/earth/Moon";
+import ISS from "@/component/scenes/earth/ISS";
 
-import earthDay from "/assets/earth_day.jpg";
-import earthNormal from "/assets/earth_normal.jpg";
-import earthSpecular from "/assets/earth_specular.jpg";
-import earthDisplacement from "/assets/earth_displacement.jpg";
-import earthNight from "/assets/earth_nightmap.jpeg";
+import earthDay from "public/assets/earth_day.jpg";
+import earthNormal from "public/assets/earth_normal.jpg";
+import earthSpecular from "public/assets/earth_specular.jpg";
+import earthDisplacement from "public/assets/earth_displacement.jpg";
+import earthNight from "public/assets/earth_nightmap.jpeg";
 
 const Earth = ({ displacementScale }) => {
   const { orbitLineState, planetSpeed } = useContext(SettingContext);

@@ -35,9 +35,9 @@ export const SettingProvider = ({ children }) => {
     let localeData;
 
     if (locale === "en") {
-      localeData = await import("../../locales/en_US.js");
+      localeData = await import("@/locales/en_US.js");
     } else if (locale === "vn") {
-      localeData = await import("../../locales/vi_VN.js");
+      localeData = await import("@/locales/vi_VN.js");
     }
 
     intl.init({

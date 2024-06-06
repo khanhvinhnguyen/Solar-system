@@ -1,15 +1,15 @@
 import React from "react";
-import Sun from "../sun/Sun";
-import Mercury from "../mercury/Mercury";
-import Venus from "../venus/Venus";
-import Earth from "../earth/EarthStructure";
-import Moon from "../earth/Moon";
-import Mars from "../mars/Mars";
-import Jupiter from "../jupiter/Jupiter";
-import Saturn from "../saturn/Saturn";
-import Uranus from "../uranus/Uranus";
-import Neptune from "../neptune/Neptune";
-import ISS from "../earth/ISS";
+import Sun from "@/component/scenes/sun/Sun";
+import Mercury from "@/component/scenes/mercury/Mercury";
+import Venus from "@/component/scenes/venus/Venus";
+import Earth from "@/component/scenes/earth/EarthStructure";
+import Moon from "@/component/scenes/earth/Moon";
+import Mars from "@/component/scenes/mars/Mars";
+import Jupiter from "@/component/scenes/jupiter/Jupiter";
+import Saturn from "@/component/scenes/saturn/Saturn";
+import Uranus from "@/component/scenes/uranus/Uranus";
+import Neptune from "@/component/scenes/neptune/Neptune";
+import ISS from "@/component/scenes/earth/ISS";
 
 const planetComponents = {
   Sun,

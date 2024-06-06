@@ -5,8 +5,8 @@ import intl from "react-intl-universal";
 
 import { SettingContext } from "@/component/context/settingContext";
 import { usePlanet } from "@/component/context/PlanetSelectContext";
-import planetData_EN from "../../assets/planetData_EN.json";
-import planetData_VN from "../../assets/planetData_VN.json";
+import planetData_EN from "@public/assets/planetData_EN.json";
+import planetData_VN from "@public/assets/planetData_VN.json";
 
 const PlanetDrawer = () => {
   const { language, handleSpeedPlanet } = useContext(SettingContext);

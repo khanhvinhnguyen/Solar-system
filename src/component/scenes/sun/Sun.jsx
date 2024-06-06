@@ -6,7 +6,7 @@ import { useFrame } from "@react-three/fiber";
 import { SettingContext } from "@/component/context/settingContext";
 import { usePlanet } from "@/component/context/PlanetSelectContext";
 
-import sunMap from "/assets/sun_map.jpg";
+import sunMap from "public/assets/sun_map.jpg";
 
 const Sun = () => {
   const sunRef = useRef();

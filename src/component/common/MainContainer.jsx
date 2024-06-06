@@ -2,22 +2,22 @@ import React, { useContext, useRef, useState, useEffect } from "react";
 import * as THREE from "three";
 import { useHelper } from "@react-three/drei";
 
-import CameraPositionLogging from "../helpers/CameraPositionLogging";
+import CameraPositionLogging from "@/component/helpers/CameraPositionLogging";
 
 import { usePlanet } from "@/component/context/PlanetSelectContext";
 
-import AnimatedStars from "./AnimatedStars";
-import Sun from "../scenes/sun/Sun";
-import Mercury from "../scenes/mercury/Mercury";
-import Venus from "../scenes/venus/Venus";
-import Earth from "../scenes/earth/EarthStructure";
-import Moon from "../scenes/earth/Moon";
-import Mars from "../scenes/mars/Mars";
-import Jupiter from "../scenes/jupiter/Jupiter";
-import Saturn from "../scenes/saturn/Saturn";
-import Uranus from "../scenes/uranus/Uranus";
-import Neptune from "../scenes/neptune/Neptune";
-import FocusPlanet from "../scenes/focus/Focus";
+import AnimatedStars from "@/component/common/AnimatedStars";
+import Sun from "@/component/scenes/sun/Sun";
+import Mercury from "@/component/scenes/mercury/Mercury";
+import Venus from "@/component/scenes/venus/Venus";
+import Earth from "@/component/scenes/earth/EarthStructure";
+import Moon from "@/component/scenes/earth/Moon";
+import Mars from "@/component/scenes/mars/Mars";
+import Jupiter from "@/component/scenes/jupiter/Jupiter";
+import Saturn from "@/component/scenes/saturn/Saturn";
+import Uranus from "@/component/scenes/uranus/Uranus";
+import Neptune from "@/component/scenes/neptune/Neptune";
+import FocusPlanet from "@/component/scenes/focus/Focus";
 
 const planetComponents = {
   Sun,

@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
-import { SettingContext } from "./SettingContext";
+import { SettingContext } from "@/component/context/settingContext";
 
 export const PlanetContext = createContext({
   selectedPlanet: null,

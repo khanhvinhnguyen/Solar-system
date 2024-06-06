@@ -66,7 +66,15 @@ const MainContainer = () => {
         ref={directionalLightRefTwo}
         position={[0, 0, -10]}
       /> */}
-      <ambientLight intensity={0.1} />
+      <ambientLight castShadow intensity={0.1} />
+      <pointLight
+        castShadow
+        intensity={2}
+        distance={100}
+        decay={2}
+        color={0xffffff}
+        position={[0, 0, 0]}
+      />
 
       {selectedPlanet == null ? (
         <group

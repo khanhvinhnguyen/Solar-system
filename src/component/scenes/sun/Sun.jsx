@@ -56,7 +56,14 @@ const Sun = () => {
           emissiveIntensity={1}
           emissive={0xffffff}
         />
-        <pointLight castShadow />
+        <pointLight
+          castShadow
+          intensity={100}
+          distance={10000}
+          decay={1}
+          color={0xffffff}
+          position={[0, 0, 0]}
+        />
       </mesh>
 
       {orbitLineState == true && selectedPlanet != "Sun" && planetsOrbitLine}

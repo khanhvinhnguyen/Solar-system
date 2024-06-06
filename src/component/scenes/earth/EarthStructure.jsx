@@ -220,7 +220,7 @@ const Earth = ({ displacementScale }) => {
   return (
     <group ref={earthRef}>
       {renderLayers()}
-      <ISS />
+      {!showStructure && <ISS />}
       {selectedPlanet !== "Earth" && (
         <group>
           <Moon />

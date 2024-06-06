@@ -38,7 +38,7 @@ const ISS = () => {
 
   const issRef = useRef();
   const memoizedISS = useMemo(() => {
-    return useGLTF("/ISSModel/ISS_stationary.gltf");
+    return useGLTF("public/ISSModel/ISS_stationary.gltf");
   });
   const xAxis = 1.5;
   useFrame(({ clock }) => {

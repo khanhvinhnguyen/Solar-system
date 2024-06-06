@@ -7,20 +7,20 @@ import { Perf } from "r3f-perf";
 import intl from "react-intl-universal";
 import _ from "lodash";
 
-import { SettingProvider } from "./component/context/SettingContext";
+import { SettingProvider } from "@/component/context/SettingContext";
 import {
-  PlanetContext,
+  usePlanet,
   PlanetProvider,
-} from "./component/context/PlanetSelectContext";
-import MainContainer from "./component/common/MainContainer";
-import LanguageSelector from "./component/common/LangSelect";
-import OrbitLineSelector from "./component/common/OrbitLineCheck";
-import PlanetDrawer from "./component/common/PlanetDrawer";
-import PlanetSpeed from "./component/common/PlanetSpeed";
-import LoadingOverlay from "./component/common/LoadingOverlay"; // Import LoadingOverlay component
+} from "@/component/context/PlanetSelectContext";
+import MainContainer from "@/component/common/MainContainer";
+import LanguageSelector from "@/component/common/LangSelect";
+import OrbitLineSelector from "@/component/common/OrbitLineCheck";
+import PlanetDrawer from "@/component/common/PlanetDrawer";
+import PlanetSpeed from "@/component/common/PlanetSpeed";
+import LoadingOverlay from "@/component/common/LoadingOverlay";
 
 function App() {
-  const { selectedPlanet } = useContext(PlanetContext);
+  const { selectedPlanet } = usePlanet();
 
   const [settingDrawer, setSettingDrawer] = useState(false);
   const { progress } = useProgress();

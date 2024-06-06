@@ -4,9 +4,9 @@ import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
 import { SettingContext } from "@/component/context/settingContext";
-import { usePlanet } from "@/component/context/PlanetSelectContext";
+import { usePlanet } from "@/component/context/planetSelectContext";
 
-import sunMap from "public/assets/sun_map.jpg";
+import sunMap from "@/assets/planetMap/sun_map.jpg";
 
 const Sun = () => {
   const sunRef = useRef();

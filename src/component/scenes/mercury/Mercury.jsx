@@ -5,7 +5,7 @@ import { useRef, useContext, useState } from "react";
 
 import { SettingContext } from "@/component/context/settingContext";
 
-import mercuryMap from "public/assets/mercury_map.jpg";
+import mercuryMap from "@/assets/planetMap/mercury_map.jpg";
 
 const Mercury = ({ displacementScale }) => {
   const { planetSpeed } = useContext(SettingContext);

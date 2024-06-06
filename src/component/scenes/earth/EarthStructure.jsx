@@ -13,11 +13,11 @@ import {
 import Moon from "@/component/scenes/earth/Moon";
 import ISS from "@/component/scenes/earth/ISS";
 
-import earthDay from "public/assets/earth_day.jpg";
-import earthNormal from "public/assets/earth_normal.jpg";
-import earthSpecular from "public/assets/earth_specular.jpg";
-import earthDisplacement from "public/assets/earth_displacement.jpg";
-import earthNight from "public/assets/earth_nightmap.jpeg";
+import earthDay from "@/assets/planetMap/earth_day.jpg";
+import earthNormal from "@/assets/planetMap/earth_normal.jpg";
+import earthSpecular from "@/assets/planetMap/earth_specular.jpg";
+import earthDisplacement from "@/assets/planetMap/earth_displacement.jpg";
+import earthNight from "@/assets/planetMap/earth_nightmap.jpeg";
 
 const Earth = ({ displacementScale }) => {
   const { orbitLineState, planetSpeed } = useContext(SettingContext);

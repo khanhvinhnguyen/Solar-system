@@ -4,7 +4,7 @@ import { useHelper } from "@react-three/drei";
 
 import CameraPositionLogging from "../helpers/CameraPositionLogging";
 
-import { usePlanet } from "../context/PlanetSelectContext";
+import { usePlanet } from "@/component/context/PlanetSelectContext";
 
 import AnimatedStars from "./AnimatedStars";
 import Sun from "../scenes/sun/Sun";

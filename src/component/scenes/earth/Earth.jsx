@@ -3,8 +3,8 @@ import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
-import { SettingContext } from "../../context/SettingContext";
-import { usePlanet } from "../../context/PlanetSelectContext";
+import { SettingContext } from "@/component/context/SettingContext";
+import { usePlanet } from "@/component/context/PlanetSelectContext";
 
 import Moon from "./Moon";
 import ISS from "./ISS";

@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef, useContext, useState } from "react";
 
-import { SettingContext } from "../../context/SettingContext";
+import { SettingContext } from "@/component/context/SettingContext";
 
 const ISS = () => {
   // const { planetSpeed } = useContext(SettingContext);

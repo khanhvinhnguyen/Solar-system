@@ -3,8 +3,8 @@ import { Checkbox, Divider, Button } from "antd";
 import { CloseOutlined } from "@ant-design/icons";
 import intl from "react-intl-universal";
 
-import { SettingContext } from "../context/SettingContext";
-import { usePlanet } from "../context/PlanetSelectContext";
+import { SettingContext } from "@/component/context/SettingContext";
+import { usePlanet } from "@/component/context/PlanetSelectContext";
 import planetData_EN from "../../assets/planetData_EN.json";
 import planetData_VN from "../../assets/planetData_VN.json";
 

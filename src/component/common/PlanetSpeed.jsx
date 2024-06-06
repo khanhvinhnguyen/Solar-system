@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { Button, Slider } from "antd";
 import { PauseOutlined, CaretRightOutlined } from "@ant-design/icons";
-import { SettingContext } from "../context/SettingContext";
+import { SettingContext } from "@/component/context/SettingContext";
 
 const PlanetSpeed = () => {
   const { planetSpeed, handleSpeedPlanet } = useContext(SettingContext);

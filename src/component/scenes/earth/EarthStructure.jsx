@@ -4,8 +4,11 @@ import { useFrame, extend, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { CSG } from "three-csg-ts";
 
-import { SettingContext } from "../../context/SettingContext";
-import { PlanetContext, usePlanet } from "../../context/PlanetSelectContext";
+import { SettingContext } from "@/component/context/SettingContext";
+import {
+  PlanetContext,
+  usePlanet,
+} from "@/component/context/PlanetSelectContext";
 
 import Moon from "./Moon";
 import earthDay from "/assets/earth_day.jpg";

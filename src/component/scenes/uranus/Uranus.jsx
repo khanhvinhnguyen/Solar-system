@@ -3,7 +3,7 @@ import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef, useContext, useState } from "react";
 
-import { SettingContext } from "@/component/context/SettingContext";
+import { SettingContext } from "@/component/context/settingContext";
 
 import uranusMap from "/assets/uranus_map.jpeg";
 

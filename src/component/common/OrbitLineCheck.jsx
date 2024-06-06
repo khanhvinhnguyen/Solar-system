@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import intl from "react-intl-universal";
 import { Checkbox } from "antd";
 
-import { SettingContext } from "@/component/context/SettingContext";
+import { SettingContext } from "@/component/context/settingContext";
 
 const OrbitLineSelector = () => {
   const { toggleOrbitLine } = useContext(SettingContext);

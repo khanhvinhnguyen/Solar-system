@@ -3,7 +3,7 @@ import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
-import { SettingContext } from "@/component/context/SettingContext";
+import { SettingContext } from "@/component/context/settingContext";
 import { usePlanet } from "@/component/context/PlanetSelectContext";
 
 import Moon from "./Moon";

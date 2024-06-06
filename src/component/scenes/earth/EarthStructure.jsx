@@ -4,7 +4,7 @@ import { useFrame, extend, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { CSG } from "three-csg-ts";
 
-import { SettingContext } from "@/component/context/SettingContext";
+import { SettingContext } from "@/component/context/settingContext";
 import {
   PlanetContext,
   usePlanet,

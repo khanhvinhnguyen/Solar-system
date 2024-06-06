@@ -6,11 +6,11 @@ import { MenuOutlined } from "@ant-design/icons";
 import { Perf } from "r3f-perf";
 import intl from "react-intl-universal";
 import _ from "lodash";
-import { SettingProvider } from "@/component/context/SettingContext";
+import { SettingProvider } from "@/component/context/settingContext";
 import {
   usePlanet,
   PlanetProvider,
-} from "@/component/context/PlanetSelectContext";
+} from "@/component/context/planetSelectContext";
 import MainContainer from "@/component/common/MainContainer";
 import LanguageSelector from "@/component/common/LangSelect";
 import OrbitLineSelector from "@/component/common/OrbitLineCheck";

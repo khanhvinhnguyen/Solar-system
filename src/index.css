@@ -175,8 +175,19 @@ body,
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
+  background-image: url("/assets/loading_img.jpeg");
+  background-size: cover;
+  background-position: center;
   color: white;
   z-index: 1000;
+
+  .ant-flex.css-dev-only-do-not-override-1l1oid0.ant-flex-gap-small {
+    position: absolute;
+    padding: 15px;
+    background: #ffffff54;
+    border-radius: 10%;
+    left: 50%;
+  }
 
   p {
     margin-top: 1.5rem;

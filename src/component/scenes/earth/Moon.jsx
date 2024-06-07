@@ -5,7 +5,7 @@ import { useRef, useContext, useState } from "react";
 
 import { SettingContext } from "@/component/context/settingContext";
 
-import moonMap from "@/assets/planetMap/moon_map.jpg";
+import moonMap from "/assets/moon_map.jpg";
 
 const Moon = () => {
   const { planetSpeed } = useContext(SettingContext);

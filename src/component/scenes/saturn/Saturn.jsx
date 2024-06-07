@@ -5,8 +5,8 @@ import { useRef, useContext, useState } from "react";
 
 import { SettingContext } from "@/component/context/settingContext";
 
-import saturnMap from "@/assets/planetMap/saturn_map.jpeg";
-import saturnRing from "@/assets/planetMap/saturnRing_map.png";
+import saturnMap from "/assets/saturn_map.jpeg";
+import saturnRing from "/assets/saturnRing_map.png";
 
 const Saturn = ({ displacementScale }) => {
   const { planetSpeed } = useContext(SettingContext);

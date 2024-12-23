@@ -1,26 +1,3 @@
-<!-- Banner -->
-<p align="center">
-  <a href="https://www.uit.edu.vn/" title="University of Information Technology" style="border: none;">
-    <img src="https://i.imgur.com/WmMnSRt.png" alt="University of Information Technology">
-  </a>
-</p>
-
-<h1 align="center"><b>Computer Graphics</b></h>
-
-## GROUP MEMBERS
-
-| Student ID |                  Name |                                                Github |                  Email |
-| :--------: | --------------------: | ----------------------------------------------------: | ---------------------: |
-|  17521263  |     Nguyễn Khánh Vinh | [khanhvinhnguyen](https://github.com/khanhvinhnguyen) |  vinhnk.work@gmail.com |
-|  22521092  | Trần Nguyễn Anh Phong |             [Kaito1307](https://github.com/Kaito1307) | 22521092@gm.uit.edu.vn |
-
-## INTRODUCTION TO THE COURSE
-
-- **Subject name:** Computer Graphics
-- **Subject code:** CS105
-- **Academic year:** Term 2 (2023 - 2024)
-- **Lecturer**: MSc. Cap Pham Dinh Thang
-
 ## FINAL PROJECT
 
 ### Introducing the topic

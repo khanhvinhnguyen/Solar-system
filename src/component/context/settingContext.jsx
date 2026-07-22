@@ -1,4 +1,10 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, {
+  createContext,
+  useState,
+  useEffect,
+  useMemo,
+  useCallback,
+} from "react";
 import intl from "react-intl-universal";
 
 export const SettingContext = createContext({
@@ -12,24 +18,24 @@ export const SettingContext = createContext({
 
 export const SettingProvider = ({ children }) => {
   const [language, setLanguage] = useState("en");
-  const [orbitLineState, setOrbitLineState] = useState(false);
+  const [orbitLineState, setOrbitLineState] = useState(true);
   const [planetSpeed, setPlanetSpeed] = useState(1);
 
   useEffect(() => {
     loadLocale(language);
   }, [language]);
 
-  const toggleLanguage = () => {
+  const toggleLanguage = useCallback(() => {
     setLanguage((prevLanguage) => (prevLanguage === "en" ? "vn" : "en"));
-  };
+  }, []);
 
-  const toggleOrbitLine = () => {
+  const toggleOrbitLine = useCallback(() => {
     setOrbitLineState((prevOrbitLineState) => !prevOrbitLineState);
-  };
+  }, []);
 
-  const handleSpeedPlanet = (value) => {
+  const handleSpeedPlanet = useCallback((value) => {
     setPlanetSpeed(value);
-  };
+  }, []);
 
   const loadLocale = async (locale) => {
     let localeData;
@@ -48,18 +54,26 @@ export const SettingProvider = ({ children }) => {
     });
   };
 
+  const value = useMemo(
+    () => ({
+      language,
+      toggleLanguage,
+      orbitLineState,
+      toggleOrbitLine,
+      planetSpeed,
+      handleSpeedPlanet,
+    }),
+    [
+      language,
+      toggleLanguage,
+      orbitLineState,
+      toggleOrbitLine,
+      planetSpeed,
+      handleSpeedPlanet,
+    ]
+  );
+
   return (
-    <SettingContext.Provider
-      value={{
-        language,
-        toggleLanguage,
-        orbitLineState,
-        toggleOrbitLine,
-        planetSpeed,
-        handleSpeedPlanet,
-      }}
-    >
-      {children}
-    </SettingContext.Provider>
+    <SettingContext.Provider value={value}>{children}</SettingContext.Provider>
   );
 };

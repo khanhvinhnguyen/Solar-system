@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useMemo,
+  useCallback,
+} from "react";
 import { SettingContext } from "@/component/context/settingContext";
 
 export const PlanetContext = createContext({
@@ -14,29 +20,33 @@ export const PlanetProvider = ({ children }) => {
   const [selectedPlanet, setSelectedPlanet] = useState(null);
   const [showStructure, setShowStructure] = useState(false);
 
-  const selectPlanet = (planet) => {
-    setSelectedPlanet(planet);
+  const selectPlanet = useCallback(
+    (planet) => {
+      setSelectedPlanet(planet);
 
-    if (planet !== null) {
-      handleSpeedPlanet(0);
-    }
-  };
+      if (planet !== null) {
+        handleSpeedPlanet(0);
+      }
+    },
+    [handleSpeedPlanet]
+  );
 
-  const structurePlanet = (data) => {
+  const structurePlanet = useCallback((data) => {
     setShowStructure(data);
-  };
+  }, []);
+
+  const value = useMemo(
+    () => ({
+      selectedPlanet,
+      selectPlanet,
+      showStructure,
+      structurePlanet,
+    }),
+    [selectedPlanet, selectPlanet, showStructure, structurePlanet]
+  );
 
   return (
-    <PlanetContext.Provider
-      value={{
-        selectedPlanet,
-        selectPlanet,
-        showStructure,
-        structurePlanet,
-      }}
-    >
-      {children}
-    </PlanetContext.Provider>
+    <PlanetContext.Provider value={value}>{children}</PlanetContext.Provider>
   );
 };
 

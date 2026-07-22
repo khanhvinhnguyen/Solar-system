@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useRef, useContext, useState } from "react";
+import { useRef, useContext } from "react";
 
 import { SettingContext } from "@/component/context/settingContext";
 
@@ -13,9 +13,7 @@ const Saturn = ({ displacementScale }) => {
 
   const saturnRef = useRef();
   const previousElapsedTime = useRef(0);
-  const [currentSaturnPosition, setCurrentSaturnPosition] = useState(
-    new THREE.Vector3(0, 0, 0)
-  );
+  const currentSaturnPosition = useRef(new THREE.Vector3(0, 0, 0));
   const [saturnTexture, saturnRingTexture] = useTexture([
     saturnMap,
     saturnRing,
@@ -30,9 +28,9 @@ const Saturn = ({ displacementScale }) => {
       const z = Math.cos(angle) * distance;
       saturnRef.current.position.set(x, 0, z);
       saturnRef.current.rotation.y += 0.01057 * planetSpeed;
-      setCurrentSaturnPosition(new THREE.Vector3(x, 0, z));
+      currentSaturnPosition.current.set(x, 0, z);
     } else {
-      saturnRef.current.position.copy(currentSaturnPosition);
+      saturnRef.current.position.copy(currentSaturnPosition.current);
     }
 
     previousElapsedTime.current = elapsedTime;

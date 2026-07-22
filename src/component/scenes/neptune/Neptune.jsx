@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useRef, useContext, useState } from "react";
+import { useRef, useContext } from "react";
 
 import { SettingContext } from "@/component/context/settingContext";
 
@@ -12,9 +12,7 @@ const Neptune = ({ displacementScale }) => {
 
   const neptuneRef = useRef();
   const previousElapsedTime = useRef(0);
-  const [currentNeptunePosition, setCurrentNeptunePosition] = useState(
-    new THREE.Vector3(0, 0, 0)
-  );
+  const currentNeptunePosition = useRef(new THREE.Vector3(0, 0, 0));
 
   const [neptuneTexture] = useTexture([neptuneMap]);
 
@@ -28,9 +26,9 @@ const Neptune = ({ displacementScale }) => {
       const z = Math.cos(angle) * distance;
       neptuneRef.current.position.set(x, 0, z);
       neptuneRef.current.rotation.y += 0.006 * planetSpeed;
-      setCurrentNeptunePosition(new THREE.Vector3(x, 0, z));
+      currentNeptunePosition.current.set(x, 0, z);
     } else {
-      neptuneRef.current.position.copy(currentNeptunePosition);
+      neptuneRef.current.position.copy(currentNeptunePosition.current);
     }
 
     previousElapsedTime.current = elapsedTime;

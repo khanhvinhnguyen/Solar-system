@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useRef, useContext, useState } from "react";
+import { useRef, useContext } from "react";
 
 import { SettingContext } from "@/component/context/settingContext";
 
@@ -11,9 +11,7 @@ const Mercury = ({ displacementScale }) => {
   const { planetSpeed } = useContext(SettingContext);
   const mercuryRef = useRef();
   const previousElapsedTime = useRef(0);
-  const [currentMercuryPosition, setCurrentMercuryPosition] = useState(
-    new THREE.Vector3(0, 0, 0)
-  );
+  const currentMercuryPosition = useRef(new THREE.Vector3(0, 0, 0));
 
   const [mercuryTexture] = useTexture([mercuryMap]);
 
@@ -27,9 +25,9 @@ const Mercury = ({ displacementScale }) => {
       const z = Math.cos(angle) * distance;
       mercuryRef.current.position.set(x, 0, z);
       mercuryRef.current.rotation.y += 0.0001 * planetSpeed;
-      setCurrentMercuryPosition(new THREE.Vector3(x, 0, z));
+      currentMercuryPosition.current.set(x, 0, z);
     } else {
-      mercuryRef.current.position.copy(currentMercuryPosition);
+      mercuryRef.current.position.copy(currentMercuryPosition.current);
     }
 
     previousElapsedTime.current = elapsedTime;

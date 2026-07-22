@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useRef, useContext, useState } from "react";
+import { useRef, useContext } from "react";
 
 import { SettingContext } from "@/component/context/settingContext";
 
@@ -12,9 +12,7 @@ const Jupiter = ({ displacementScale }) => {
 
   const jupiterRef = useRef();
   const previousElapsedTime = useRef(0);
-  const [currentJupiterPosition, setCurrentJupiterPosition] = useState(
-    new THREE.Vector3(0, 0, 0)
-  );
+  const currentJupiterPosition = useRef(new THREE.Vector3(0, 0, 0));
   const [jupiterTexture] = useTexture([jupiterMap]);
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
@@ -26,9 +24,9 @@ const Jupiter = ({ displacementScale }) => {
       const z = Math.cos(angle) * distance;
       jupiterRef.current.position.set(x, 0, z);
       jupiterRef.current.rotation.y += 0.00987 * planetSpeed;
-      setCurrentJupiterPosition(new THREE.Vector3(x, 0, z));
+      currentJupiterPosition.current.set(x, 0, z);
     } else {
-      jupiterRef.current.position.copy(currentJupiterPosition);
+      jupiterRef.current.position.copy(currentJupiterPosition.current);
     }
 
     previousElapsedTime.current = elapsedTime;

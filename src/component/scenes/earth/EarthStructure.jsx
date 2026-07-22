@@ -1,4 +1,4 @@
-import { useContext, useRef, useState, useEffect } from "react";
+import { useContext, useRef, useState, useEffect, Suspense } from "react";
 import { useTexture } from "@react-three/drei";
 import { useFrame, extend, useThree } from "@react-three/fiber";
 import * as THREE from "three";
@@ -28,9 +28,7 @@ const Earth = ({ displacementScale }) => {
 
   const earthRef = useRef();
   const previousElapsedTime = useRef(0);
-  const [currentEarthPosition, setCurrentEarthPosition] = useState(
-    new THREE.Vector3(0, 0, 0)
-  );
+  const currentEarthPosition = useRef(new THREE.Vector3(0, 0, 0));
 
   const [
     earthTexture,
@@ -56,9 +54,9 @@ const Earth = ({ displacementScale }) => {
       const z = Math.cos(angle) * distance;
       earthRef.current.position.set(x, 0, z);
       earthRef.current.rotation.y += 0.0043 * planetSpeed;
-      setCurrentEarthPosition(new THREE.Vector3(x, 0, z));
+      currentEarthPosition.current.set(x, 0, z);
     } else {
-      earthRef.current.position.copy(currentEarthPosition);
+      earthRef.current.position.copy(currentEarthPosition.current);
     }
 
     previousElapsedTime.current = elapsedTime;
@@ -224,23 +222,25 @@ const Earth = ({ displacementScale }) => {
   return (
     <group ref={earthRef}>
       {renderLayers()}
-      {!showStructure && <ISS />}
-      {selectedPlanet !== "Earth" && (
-        <group>
-          <Moon />
-          {orbitLineState && (
-            <mesh rotation={[Math.PI / 2, 0, 0]}>
-              <ringGeometry args={[1.95, 2.05, 80]} />
-              <meshBasicMaterial
-                color={0xf5e96c}
-                opacity={0.2}
-                transparent={true}
-                side={THREE.DoubleSide}
-              />
-            </mesh>
-          )}
-        </group>
+      {selectedPlanet === "Earth" && !showStructure && (
+        <Suspense fallback={null}>
+          <ISS />
+        </Suspense>
       )}
+      <group>
+        <Moon />
+        {orbitLineState && (
+          <mesh rotation={[Math.PI / 2, 0, 0]}>
+            <ringGeometry args={[1.95, 2.05, 80]} />
+            <meshBasicMaterial
+              color={0xf5e96c}
+              opacity={0.2}
+              transparent={true}
+              side={THREE.DoubleSide}
+            />
+          </mesh>
+        )}
+      </group>
     </group>
   );
 };

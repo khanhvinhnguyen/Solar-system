@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useRef, useContext, useState } from "react";
+import { useRef, useContext } from "react";
 
 import { SettingContext } from "@/component/context/settingContext";
 
@@ -12,9 +12,7 @@ const Venus = ({ displacementScale }) => {
 
   const venusRef = useRef();
   const previousElapsedTime = useRef(0);
-  const [currentVenusPosition, setCurrentVenusPosition] = useState(
-    new THREE.Vector3(0, 0, 0)
-  );
+  const currentVenusPosition = useRef(new THREE.Vector3(0, 0, 0));
 
   const [venusTexture] = useTexture([venusMap]);
   useFrame(({ clock }) => {
@@ -27,9 +25,9 @@ const Venus = ({ displacementScale }) => {
       const z = Math.cos(angle) * distance;
       venusRef.current.position.set(x, 0, z);
       venusRef.current.rotation.y += 0.006 * planetSpeed;
-      setCurrentVenusPosition(new THREE.Vector3(x, 0, z));
+      currentVenusPosition.current.set(x, 0, z);
     } else {
-      venusRef.current.position.copy(currentVenusPosition);
+      venusRef.current.position.copy(currentVenusPosition.current);
     }
 
     previousElapsedTime.current = elapsedTime;

@@ -1,47 +1,44 @@
 import * as THREE from "three";
 import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useRef, useContext, useState } from "react";
+import { useRef, useContext } from "react";
 
 import { SettingContext } from "@/component/context/settingContext";
+import { usePlanet } from "@/component/context/planetSelectContext";
 
 import moonMap from "/assets/moon_map.jpg";
 
 const Moon = () => {
   const { planetSpeed } = useContext(SettingContext);
+  const { selectedPlanet } = usePlanet();
   const moonRef = useRef();
   const previousElapsedTime = useRef(0);
-  const [currentMoonPosition, setCurrentMoonPosition] = useState(
-    new THREE.Vector3(0, 0, 0)
-  );
+  const currentMoonPosition = useRef(new THREE.Vector3(0, 0, 0));
 
   const [moonTexture] = useTexture([moonMap]);
+
+  // Selecting any planet force-pauses the global speed and hides the play
+  // control, so while focused on Earth the Moon would otherwise freeze
+  // forever with no way to resume it. Keep it orbiting in that view.
+  const effectiveSpeed = selectedPlanet === "Earth" ? 1 : planetSpeed;
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
 
-    if (planetSpeed !== 0) {
-      const angle = elapsedTime * 0.03 * planetSpeed;
+    if (effectiveSpeed !== 0) {
+      const angle = elapsedTime * 0.03 * effectiveSpeed;
       const distance = 2;
       const x = Math.sin(angle) * distance;
       const z = Math.cos(angle) * distance;
       moonRef.current.position.set(x, 0, z);
-      moonRef.current.rotation.y += 0.002 * planetSpeed;
-      setCurrentMoonPosition(new THREE.Vector3(x, 0, z));
+      moonRef.current.rotation.y += 0.002 * effectiveSpeed;
+      currentMoonPosition.current.set(x, 0, z);
     } else {
-      moonRef.current.position.copy(currentMoonPosition);
+      moonRef.current.position.copy(currentMoonPosition.current);
     }
 
     previousElapsedTime.current = elapsedTime;
   });
-
-  // useFrame(({ clock }) => {
-  //   moonRef.current.position.x =
-  //     Math.sin(clock.getElapsedTime() * 0.03) * xAxis * planetSpeed;
-  //   moonRef.current.position.z =
-  //     Math.cos(clock.getElapsedTime() * 0.03) * xAxis * planetSpeed;
-  //   moonRef.current.rotation.y += 0.002 * planetSpeed;
-  // });
 
   return (
     <mesh

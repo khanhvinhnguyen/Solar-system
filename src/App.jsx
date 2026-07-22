@@ -18,9 +18,40 @@ import PlanetDrawer from "@/component/common/PlanetDrawer";
 import PlanetSpeed from "@/component/common/PlanetSpeed";
 import LoadingOverlay from "@/component/common/LoadingOverlay";
 
-function App() {
+function PlanetSpeedControls({ isLoading }) {
   const { selectedPlanet } = usePlanet();
 
+  if (isLoading || selectedPlanet != null) {
+    return null;
+  }
+
+  return <PlanetSpeed />;
+}
+
+const PLANET_RADII = {
+  Sun: 1.5,
+  Mercury: 0.383,
+  Venus: 0.949,
+  Earth: 1,
+  Mars: 0.532,
+  Jupiter: 11.21,
+  Saturn: 9.45,
+  Uranus: 4.01,
+  Neptune: 3.88,
+  Moon: 0.27,
+};
+const CAMERA_CLEARANCE = 1.5;
+
+function CameraControls() {
+  const { selectedPlanet } = usePlanet();
+  const minDistance =
+    (PLANET_RADII[selectedPlanet] ?? PLANET_RADII.Sun) * CAMERA_CLEARANCE +
+    0.5;
+
+  return <OrbitControls minDistance={minDistance} />;
+}
+
+function App() {
   const [settingDrawer, setSettingDrawer] = useState(false);
   const { progress } = useProgress();
   const isLoading = progress < 100;
@@ -58,14 +89,13 @@ function App() {
           camera={{ fov: 55, near: 0.1, far: 1000, position: [16, 8.5, 19.5] }}
         >
           <color attach="background" args={["#15151e"]} />
-          <OrbitControls />
+          <CameraControls />
           <MainContainer />
         </Canvas>
         {isLoading && <LoadingOverlay />}
         <PlanetDrawer />
 
-        {/* || selectedPlanet === null */}
-        {!isLoading && <PlanetSpeed />}
+        <PlanetSpeedControls isLoading={isLoading} />
       </PlanetProvider>
     </SettingProvider>
   );

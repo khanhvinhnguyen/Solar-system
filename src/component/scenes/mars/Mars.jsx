@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useRef, useContext, useState } from "react";
+import { useRef, useContext } from "react";
 
 import { SettingContext } from "@/component/context/settingContext";
 
@@ -12,9 +12,7 @@ const Mars = ({ displacementScale }) => {
 
   const marsRef = useRef();
   const previousElapsedTime = useRef(0);
-  const [currentMercuryPosition, setCurrentMercuryPosition] = useState(
-    new THREE.Vector3(0, 0, 0)
-  );
+  const currentMarsPosition = useRef(new THREE.Vector3(0, 0, 0));
 
   const [marsTexture] = useTexture([marsMap]);
 
@@ -28,9 +26,9 @@ const Mars = ({ displacementScale }) => {
       const z = Math.cos(angle) * distance;
       marsRef.current.position.set(x, 0, z);
       marsRef.current.rotation.y += 0.024 * planetSpeed;
-      setCurrentMercuryPosition(new THREE.Vector3(x, 0, z));
+      currentMarsPosition.current.set(x, 0, z);
     } else {
-      marsRef.current.position.copy(currentMercuryPosition);
+      marsRef.current.position.copy(currentMarsPosition.current);
     }
 
     previousElapsedTime.current = elapsedTime;

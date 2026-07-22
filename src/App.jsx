@@ -40,7 +40,7 @@ const PLANET_RADII = {
   Neptune: 3.88,
   Moon: 0.27,
 };
-const CAMERA_CLEARANCE = 1.5;
+const CAMERA_CLEARANCE = 2;
 
 function CameraControls() {
   const { selectedPlanet } = usePlanet();

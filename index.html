@@ -1,32 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/assets/solar-system-mark.svg" />
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" href="/assets/favi.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solar System — Interactive 3D Explorer</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Solar System</title>
+    <meta
+      name="description"
+      content="Explore the Solar System through an interactive 3D experience built with React Three Fiber and Three.js."
+    />
 
-  <script type="text/javascript">
-    (function (l) {
-      if (l.search[1] === "/") {
-        var decoded = l.search
-          .slice(1)
-          .split("&")
-          .map(function (s) {
-            return s.replace(/~and~/g, "&");
-          })
-          .join("?");
-        window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
-      }
-    })(window.location);
-  </script>
-</head>
+    <link rel="canonical" href="https://solar-system.wetwenties.com/" />
 
-<body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
-</body>
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Solar System — Interactive 3D Explorer"
+    />
+    <meta
+      property="og:description"
+      content="Explore planets, orbital motion and the Solar System in an interactive 3D experience."
+    />
+    <meta
+      property="og:image"
+      content="https://solar-system.wetwenties.com/og-image.png"
+    />
+    <meta property="og:url" content="https://solar-system.wetwenties.com/" />
 
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Solar System — Interactive 3D Explorer"
+    />
+    <meta
+      name="twitter:description"
+      content="An interactive 3D Solar System experience built with React and Three.js."
+    />
+    <meta
+      name="twitter:image"
+      content="https://solar-system.wetwenties.com/og-image.png"
+    />
+
+    <script type="text/javascript">
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash,
+          );
+        }
+      })(window.location);
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
